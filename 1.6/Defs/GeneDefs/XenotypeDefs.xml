@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<XenotypeDef>
+  <defName>DV_Dracnyr</defName>
+  <label>dracnyr</label>
+  <combatPowerFactor>1.4</combatPowerFactor>
+  <description>The dracnyr are descendants of the original knyfevyn race, manifesting some of their original traits to this day, mainly their stature, long lifespan and cruelty. However, while the knyfevyn were cursed with hunger for human flesh, the dracnyr's progenitor armed them with the ability to imitate the genetic code of others to their advantage, using special extractor organs within their teeth, and archite-powered stem cells that can restructure themselves on the spot. Combined with their propensity to dwell in the shadows and the countless kidnappings by their hands, the dracnyr have earned their reputation as nigh-mythological legends, plaguing the alleyways of urbworlds and ruins of medieval worlds alike.\n\nSplit off after a civil war tore the knyfevyn civilization apart, the dracnyr followed in the footsteps of their progenitor, whom grafted them with crumbs of archotech essence to gain strength, power and eventually avenge themselves. After the progenitor's death, the dracnyr march on, endlessly growing their forces by implanting the progenitor's geneseed into unfortunate victims, to create new brothers and sisters for their cause. It is unknown whether the dracnyr are aware that the knyfevyn race is long extinct, as contact is impossible with the vile genestealers.</description>
+  <descriptionShort>The dracnyr are descendants of the original knyfevyn race, manifesting some of their original traits to this day, mainly their stature, long lifespan and cruelty. However, while the knyfevyn were cursed with hunger for human flesh, the dracnyr's progenitor armed them with the ability to imitate the genetic code of others to their advantage, using special extractor organs within their teeth, and archite-powered stem cells that can restructure themselves on the spot. Combined with their propensity to dwell in the shadows and the countless kidnappings by their hands, the dracnyr have earned their reputation as nigh-mythological legends, plaguing the alleyways of urbworlds and ruins of medieval worlds alike.</descriptionShort>
+  <iconPath>UI/Xenotypes/Dracnyr</iconPath>
+  <inheritable>true</inheritable>
+  <genes>
+    <li>Beard_NoBeardOnly</li>
+    <li>DV_Hair_Dracnyr</li>
+    <li>DV_Body_SculptedBodies</li>
+    <li>DV_Headbone_HornHalo</li>
+    <li>DV_Ears_Sharp</li>
+    <li>Hair_LightBlack</li>
+	  <li>Skin_DeepBlue</li>
+    <li>DV_Psychopathic</li>
+    <li>LTS_Gene_GeneSteal</li>
+    <li>LTS_Gene_LongDash</li>
+    <li>Ageless</li>
+    <li>Sterile</li>
+    <li>Beauty_Pretty</li>
+    <li>DarkVision</li>
+    <li>DV_DarknessAdaptation</li>
+  </genes>
+</XenotypeDef>
+
+</Defs>

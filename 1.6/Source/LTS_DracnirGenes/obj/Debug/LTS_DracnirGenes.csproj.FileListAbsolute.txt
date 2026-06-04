@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\MiscMod\1.6\Assemblies\LTS_DracnirGenes.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\MiscMod\1.6\Source\LTS_DracnirGenes\obj\Debug\LTS_DracnirGenes.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\MiscMod\1.6\Source\LTS_DracnirGenes\obj\Debug\LTS_DracnirGenes.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\MiscMod\1.6\Source\LTS_DracnirGenes\obj\Debug\LTS_DracnirGenes.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\MiscMod\1.6\Source2\LTS_DracnirGenes\obj\Debug\LTS_DracnirGenes.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\MiscMod\1.6\Source2\LTS_DracnirGenes\obj\Debug\LTS_DracnirGenes.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\MiscMod\1.6\Source2\LTS_DracnirGenes\obj\Debug\LTS_DracnirGenes.dll

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>DV_MeleeWeapon_ToxClaw</defName>
+    <label>toxclaw</label>
+    <description>An electrically charged plasteel-alloy cutlass. It's swift to swing and it's large blade easily slices flesh and cloth. Prolonged contact allows the blade to deliver shocks into targets which disrupts the nervous system, stunning them.</description>
+    <soundInteract>Interact_ChargeLance</soundInteract>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <smeltable>false</smeltable>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>3</Mass>
+    </statBases>
+    <weaponTags>
+      <li>DracnyrMeleeLight</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/ToxClaw</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <recipeMaker IsNulle="True" />
+    <costList>
+      <Plasteel>12</Plasteel>
+      <Steel>20</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>7</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.14</armorPenetration>
+        <extraMeleeDamages>
+          <li>
+            <def>DV_MeleeToxic</def>
+            <amount>5</amount>
+            <chance>0.8</chance>
+          </li>
+        </extraMeleeDamages>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>15</power>
+        <cooldownTime>1.5</cooldownTime>
+        <armorPenetration>0.1</armorPenetration>
+        <extraMeleeDamages>
+          <li>
+            <def>DV_MeleeToxic</def>
+            <amount>5</amount>
+            <chance>0.5</chance>
+          </li>
+        </extraMeleeDamages>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+    <defName>DV_MeleeWeapon_ToxTalon</defName>
+    <label>toxtalon</label>
+    <description>An electrically charged plasteel-alloy cutlass. It's swift to swing and it's large blade easily slices flesh and cloth. Prolonged contact allows the blade to deliver shocks into targets which disrupts the nervous system, stunning them.</description>
+    <soundInteract>Interact_ChargeLance</soundInteract>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <smeltable>false</smeltable>
+    <statBases>
+      <WorkToMake>18000</WorkToMake>
+      <Mass>3</Mass>
+    </statBases>
+    <weaponTags>
+      <li>DracnyrMeleeHeavy</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/ToxTalon</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.2</drawSize>
+    </graphicData>
+    <recipeMaker IsNulle="True" />
+    <costList>
+      <Plasteel>12</Plasteel>
+      <Steel>20</Steel>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>1.8</cooldownTime>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>21</power>
+        <cooldownTime>1.8</cooldownTime>
+        <armorPenetration>0.12</armorPenetration>
+        <extraMeleeDamages>
+          <li>
+            <def>DV_MeleeToxic</def>
+            <amount>7</amount>
+            <chance>0.7</chance>
+          </li>
+        </extraMeleeDamages>
+      </li>
+    </tools>
+  </ThingDef>
+
+</Defs>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ApparelArmorHelmetPowerBase">
+    <defName>DV_Apparel_ShadowHelmet</defName>
+    <label>shade helmet</label>
+    <description>A fully enclosed powered helmet equipped with a miniaturized life support system widely used by space-faring soldiers. Thin layered plasteel plates are woven into flexible heat shields to offer both protection from conventional weapons and protection from the heat, meanwhile the built-in breathing apparatus offers protection from airborne toxins</description>
+    <statBases Inherit="False">
+      <WorkToMake>21000</WorkToMake>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Mass>1.2</Mass>
+      <Flammability>0.2</Flammability>
+      <ArmorRating_Sharp>0.86</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.86</ArmorRating_Heat>
+      <Insulation_Cold>8</Insulation_Cold>
+      <Insulation_Heat>2</Insulation_Heat>
+      <EquipDelay>8</EquipDelay>
+    </statBases>
+    <costList>
+      <Uranium>15</Uranium>
+      <ComponentSpacer>2</ComponentSpacer>
+      <Plasteel>30</Plasteel>
+    </costList>
+    <equippedStatOffsets>
+      <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+      <MentalBreakThreshold>-0.1</MentalBreakThreshold>
+      <HypoxiaResistance MayRequire="kentington.saveourship2">1</HypoxiaResistance>
+      <DecompressionResistance MayRequire="kentington.saveourship2">0.25</DecompressionResistance>
+      <VacuumResistance MayRequire="Ludeon.Rimworld.Odyssey">0.69</VacuumResistance>
+    </equippedStatOffsets>
+
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/ShadowHelmet/ShadowHelmet</texPath>
+      <shaderType>CutoutComplex</shaderType>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+
+    <apparel Inherit="False">
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/ShadowHelmet/ShadowHelmet</wornGraphicPath>
+      <useWornGraphicMask>true</useWornGraphicMask>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+        <li>Spacefarer</li>
+      </defaultOutfitTags>
+      <tags>
+        <li>DracnyrSpacerMilitary</li>
+      </tags>
+      <useDeflectMetalEffect>true</useDeflectMetalEffect>
+      <immuneToToxGasExposure>true</immuneToToxGasExposure>
+    </apparel>
+
+    <comps>
+      <li MayRequire="kentington.saveourship2">
+        <compClass>SaveOurShip2.CompEVA</compClass>
+      </li>
+    </comps>
+
+    <recipeMaker>
+      <displayPriority>100</displayPriority>
+    </recipeMaker>
+  </ThingDef>
+
+
+  <ThingDef ParentName="HatMakeableBase">
+    <defName>DV_Apparel_AssassinVeil</defName>
+    <label>shroud</label>
+    <description>A piece of fabric which covers the wearer's face.</description>
+    <techLevel>Neolithic</techLevel>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/AssassinVeil/AssassinVeil</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.9</drawSize>
+    </graphicData>
+    <uiIconScale>1.15</uiIconScale>
+    <stuffCategories>
+      <li>Fabric</li>
+    </stuffCategories>
+    <costStuffCount>20</costStuffCount>
+    <statBases>
+      <WorkToMake>1400</WorkToMake>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>0.08</Mass>
+      <StuffEffectMultiplierArmor>0.2</StuffEffectMultiplierArmor>
+      <StuffEffectMultiplierInsulation_Cold>0.05</StuffEffectMultiplierInsulation_Cold>
+      <StuffEffectMultiplierInsulation_Heat>0.05</StuffEffectMultiplierInsulation_Heat>
+      <EquipDelay>1.5</EquipDelay>
+    </statBases>
+    <equippedStatOffsets>
+      <PainShockThreshold>0.05</PainShockThreshold>
+      <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.1</SlaveSuppressionOffset>
+      <ToxicEnvironmentResistance>0.35</ToxicEnvironmentResistance>
+    </equippedStatOffsets>
+    <apparel>
+      <bodyPartGroups>
+        <li>Neck</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/AssassinVeil/AssassinVeil</wornGraphicPath>
+      <renderSkipFlags>
+        <li>None</li>
+      </renderSkipFlags>
+      <drawData>
+        <dataNorth>
+          <layer>-3</layer>
+        </dataNorth>
+        <dataSouth>
+          <layer>55</layer>
+        </dataSouth>
+        <dataEast>
+          <layer>55</layer>
+        </dataEast>
+        <dataWest>
+          <layer>55</layer>
+        </dataWest>
+      </drawData>
+      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+      <canBeGeneratedToSatisfyWarmth>true</canBeGeneratedToSatisfyWarmth>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+      <defaultOutfitTags>
+        <li>Soldier</li>
+      </defaultOutfitTags>
+      <forceEyesVisibleForRotations>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </forceEyesVisibleForRotations>
+    </apparel>
+    <recipeMaker>
+      <recipeUsers>
+        <li>CraftingSpot</li>
+        <li>ElectricTailoringBench</li>
+        <li>HandTailoringBench</li>
+      </recipeUsers>
+      <displayPriority>160</displayPriority>
+    </recipeMaker>
+    <tradeTags>
+      <li>BasicClothing</li>
+    </tradeTags>
+  </ThingDef>
+
+  <ThingDef ParentName="HatMakeableBase">
+    <defName>DV_Apparel_HornMask</defName>
+    <label>horn mask</label>
+    <description>An advanced steel mask equipped with a weak toxin filter and advanced heat-based sensors which allows the wearer to stalk prey with more stealth.\n\nThis headgear is associated with pride and power, it makes the wearer more confident and is usually worn by Venator hunters for ceremonial purposes.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/HornMask/HornMask</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <uiIconScale>1.15</uiIconScale>
+    <statBases>
+      <WorkToMake>3000</WorkToMake>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>1.4</Mass>
+      <EquipDelay>1.5</EquipDelay>
+      <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.10</ArmorRating_Blunt>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/HornMask/HornMask</wornGraphicPath>
+      <renderSkipFlags>
+        <li>None</li>
+      </renderSkipFlags>
+      <drawData>
+        <dataNorth>
+          <layer>-3</layer>
+        </dataNorth>
+      </drawData>
+      <layers>
+        <li>Overhead</li>
+      </layers>
+    </apparel>
+    <recipeMaker IsNull="True" />
+  </ThingDef>
+
+</Defs>

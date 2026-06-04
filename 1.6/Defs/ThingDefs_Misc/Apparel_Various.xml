@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="DV_ApparelArmorShadowBase" ParentName="ArmorMachineableBase" Abstract="True">
+        <techLevel>Spacer</techLevel>
+        <recipeMaker IsNull="True" />
+        <graphicData>
+          <texPath>Things/Pawn/Humanlike/Apparel/ShadowArmor/ShadowArmor</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+        </graphicData>
+        <generateCommonality>1</generateCommonality>
+        <statBases>
+          <WorkToMake>63000</WorkToMake>
+          <MaxHitPoints>375</MaxHitPoints>
+          <Mass>15</Mass>
+          <Flammability>0</Flammability>
+          <ArmorRating_Sharp>0.88</ArmorRating_Sharp>
+          <ArmorRating_Blunt>0.56</ArmorRating_Blunt>
+          <ArmorRating_Heat>0.74</ArmorRating_Heat>
+          <Insulation_Cold>10</Insulation_Cold>
+          <Insulation_Heat>6</Insulation_Heat>
+          <EquipDelay>16</EquipDelay>
+        </statBases>
+        <equippedStatOffsets>
+          <ToxicEnvironmentResistance>1</ToxicEnvironmentResistance>
+          <HypoxiaResistance MayRequire="kentington.saveourship2">1</HypoxiaResistance>
+          <DecompressionResistance MayRequire="kentington.saveourship2">0.75</DecompressionResistance>
+          <VacuumSpeedMultiplier MayRequire="kentington.saveourship2">4</VacuumSpeedMultiplier>
+        </equippedStatOffsets>
+        <thingCategories>
+          <li>ApparelArmor</li>
+        </thingCategories>
+        <tradeTags>
+          <li>HiTechArmor</li>
+        </tradeTags>
+        <costList>
+          <ComponentSpacer>5</ComponentSpacer>
+          <Plasteel>130</Plasteel>
+          <Uranium>25</Uranium>
+        </costList>
+        <apparel>
+          <bodyPartGroups>
+            <li>Torso</li>
+            <li>Neck</li>
+            <li>Shoulders</li>
+            <li>Arms</li>
+            <li>Legs</li>
+          </bodyPartGroups>
+          <wornGraphicPath>Things/Pawn/Humanlike/Apparel/ShadowArmor/ShadowArmor</wornGraphicPath>
+          <useWornGraphicMask>true</useWornGraphicMask>
+          <layers>
+            <li>Middle</li>
+            <li>Shell</li>
+          </layers>
+          <defaultOutfitTags>
+            <li>Soldier</li>
+          </defaultOutfitTags>
+          <useDeflectMetalEffect>true</useDeflectMetalEffect>
+          <soundWear>Wear_PowerArmor</soundWear>
+          <soundRemove>Remove_PowerArmor</soundRemove>
+        </apparel>
+        <comps>
+            <li MayRequire="kentington.saveourship2">
+              <compClass>SaveOurShip2.CompEVA</compClass>
+            </li>
+            <li Class="CompProperties_Biocodable"/>
+        </comps>
+        <colorGenerator Class="ColorGenerator_Options">
+          <options>
+            <li>
+              <weight>10</weight>
+              <only>(0.9,0.9,0.9)</only>
+            </li>
+            <li>
+              <weight>10</weight>
+              <only>(0.33,0.33,0.33)</only>
+            </li>
+            <li>
+              <weight>10</weight>
+              <only>(0.65,0.65,0.65)</only>
+            </li>
+            <li>
+              <weight>6</weight>
+              <min>(0.3,0.3,0.3)</min>
+              <max>(0.5,0.5,0.5)</max>
+            </li>
+          </options>
+        </colorGenerator>
+        <thingSetMakerTags>
+          <li>RewardStandardHighFreq</li>
+        </thingSetMakerTags>
+      </ThingDef>
+    
+      <ThingDef ParentName="DV_ApparelArmorShadowBase">
+        <defName>DV_Apparel_ShadowArmor</defName>
+        <label>shade armor</label>
+        <description>A fully sealed suit of powered armor. Layered plasteel plates woven into flexible heat shields protect vital bodyparts from both ballistic and energy weapons while still allowing full range of motion. The sealed environment inside of the suit allows the wearer to survive for prolonged amounts of time in environments without oxygen, and protect from toxins and gases. Small fabric pouches on the waist of the suit store extra ammunitions, allowing faster reload times.\n\nArmor like this is a common sight amongst space-faring empires or militias.</description>
+        <apparel>
+          <tags>
+            <li>DracnyrSpacerMilitary</li>
+          </tags>
+        </apparel>
+        <recipeMaker>
+          <displayPriority>105</displayPriority>
+        </recipeMaker>
+      </ThingDef>
+
+</Defs>

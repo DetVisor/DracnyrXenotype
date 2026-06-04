@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <PawnKindDef ParentName="PirateBase" Name="DV_DracnyrBase" Abstract="True">
+    <combatPower>100</combatPower>
+    <initialWillRange>1~3</initialWillRange>
+    <backstoryCryptosleepCommonality>0.05</backstoryCryptosleepCommonality>
+    <itemQuality>Good</itemQuality>
+    <race>Human</race>
+    <minGenerationAge>20</minGenerationAge>
+    <maxGenerationAge>50</maxGenerationAge>
+    <allowOldAgeInjuries>false</allowOldAgeInjuries>
+    <apparelTags Inherit="False">
+      <li>IndustrialMilitaryBasic</li>
+      <li>IndustrialMilitaryAdvanced</li>
+      <li>DracnyrSpacerMilitary</li>
+      <li>SpacerMilitary</li>
+    </apparelTags>
+    <initialResistanceRange>12~24</initialResistanceRange>
+    <gearHealthRange>1~2</gearHealthRange>
+    <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+    <techHediffsMoney>100~200</techHediffsMoney>
+    <techHediffsTags>
+      <li>Poor</li>
+    </techHediffsTags>
+    <techHediffsChance>0</techHediffsChance>
+    <inventoryOptions>
+      <skipChance>0.95</skipChance>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>MedicineIndustrial</thingDef>
+          <countRange>3</countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+    <xenotypeSet>
+      <xenotypeChances>
+        <DV_Dracnyr>999</DV_Dracnyr>
+      </xenotypeChances>
+    </xenotypeSet>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <disallowedTraits>
+      <li>BodyPurist</li>
+      <li>Nudist</li>
+      <li>Gourmand</li>
+    </disallowedTraits>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="DV_DracnyrBase">
+    <defName>DV_Shadeling_Dracnyr</defName>
+    <label>shadeling</label>
+    <combatPower>100</combatPower>
+    <apparelMoney>9000</apparelMoney>
+    <apparelRequired Inherit="False">
+      <li>DV_Apparel_ShadowArmor</li>
+      <li>DV_Apparel_AssassinVeil</li>
+    </apparelRequired>
+    <weaponMoney>1000~1500</weaponMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_DracnyrCult</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>DracnyrMeleeLight</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Neck</bodyPartGroup>
+        <apparelLayer>EyeCover</apparelLayer>
+        <color>(67, 60, 86)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>Shell</apparelLayer>
+        <color>(70, 70, 70)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="DV_DracnyrBase">
+    <defName>DV_Swordsman_Dracnyr</defName>
+    <label>swordsman</label>
+    <labelFemale>swordswoman</labelFemale>
+    <combatPower>150</combatPower>
+    <apparelMoney>9000</apparelMoney>
+    <apparelRequired Inherit="False">
+      <li>DV_Apparel_ShadowArmor</li>
+      <li>DV_Apparel_HornMask</li>
+    </apparelRequired>
+    <weaponMoney>1000~1500</weaponMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_DracnyrCult</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>DracnyrMeleeHeavy</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>Shell</apparelLayer>
+        <color>(67, 60, 86)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="DV_DracnyrBase">
+    <defName>DV_Marskman_Dracnyr</defName>
+    <label>marskman</label>
+    <labelFemale>markswoman</labelFemale>
+    <combatPower>125</combatPower>
+    <apparelMoney>9000</apparelMoney>
+    <apparelRequired Inherit="False">
+      <li>Apparel_HatHood</li>
+      <li>DV_Apparel_AssassinVeil</li>
+      <li>DV_Apparel_ShadowArmor</li>
+    </apparelRequired>
+    <weaponMoney>1000~1500</weaponMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_DracnyrCult</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>DracnyrRanged</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Neck</bodyPartGroup>
+        <apparelLayer>EyeCover</apparelLayer>
+        <color>(70, 70, 70)</color>
+      </li>
+      <li>
+        <bodyPartGroup>UpperHead</bodyPartGroup>
+        <apparelLayer>Overhead</apparelLayer>
+        <color>(67, 60, 86)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>Shell</apparelLayer>
+        <color>(70, 70, 70)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="DV_DracnyrBase">
+    <defName>DV_Moonlord_Dracnyr</defName>
+    <label>moonlord</label>
+    <combatPower>170</combatPower>
+    <apparelMoney>9000</apparelMoney>
+    <apparelRequired Inherit="False">
+      <li>DV_Apparel_ShadowHelmet</li>
+      <li>DV_Apparel_ShadowArmor</li>
+      <li>Apparel_ShieldBelt</li>
+    </apparelRequired>
+    <weaponMoney>1000~1500</weaponMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_DracnyrCult</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>DracnyrRanged</li>
+      <li>DracnyrMeleeHeavy</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>FullHead</bodyPartGroup>
+        <apparelLayer>Overhead</apparelLayer>
+        <color>(67, 60, 86)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>Shell</apparelLayer>
+        <color>(70, 70, 70)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+  <!--
+  <PawnKindDef ParentName="PirateKeshigBase">
+    <defName>DV_Ravager_Keshig</defName>
+    <label>ravager</label>
+    <combatPower>70</combatPower>
+    <apparelColor>(60, 57, 55)</apparelColor>
+    <apparelMoney>1000</apparelMoney>
+    <apparelRequired Inherit="False">
+      <li>Apparel_Jacket</li>
+      <li>Apparel_FlakPants</li>
+      <li>Apparel_SimpleHelmet</li>
+      <li>Apparel_ShieldBelt</li>
+    </apparelRequired>
+    <weaponMoney>1200~2000</weaponMoney>
+    <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_PirateKeshig</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>LongSword</li>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>Middle</apparelLayer>
+        <color>(118, 49, 57)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="PirateKeshigBase">
+    <defName>DV_Boyan_Keshig</defName>
+    <label>boyan</label>
+    <combatPower>110</combatPower>
+    <apparelMoney>1500</apparelMoney>
+    <apparelRequired Inherit="False">
+      <li>Apparel_Parka</li>
+      <li>Apparel_FlakPants</li>
+      <li>Apparel_FlakVest</li>
+      <li>Apparel_AdvancedHelmet</li>
+      <li>Apparel_ShieldBelt</li>
+    </apparelRequired>
+    <weaponMoney>1200~2000</weaponMoney>
+    <apparelAllowHeadgearChance>1</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_PirateKeshig</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>LongSword</li>
+      <li>MedievalMeleeAdvanced</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <colorGenerator Inherit="False" Class="ColorGenerator_Options">
+          <options>
+            <li>
+              <only>(60, 57, 55)</only>
+            </li>
+            <li>
+              <only>(77, 70, 69)</only>
+            </li>
+            <li>
+              <only>(60, 57, 57)</only>
+            </li>
+            <li>
+              <only>(79, 75, 73)</only>
+            </li>
+            <li>
+              <only>(66, 66, 66)</only>
+            </li>
+          </options>
+        </colorGenerator>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="PirateKeshigBase" Name="PirateKeshigEliteBase" Abstract="True">
+    <combatPower>140</combatPower>
+    <initialWillRange>6~10</initialWillRange>
+    <backstoryCryptosleepCommonality>0.05</backstoryCryptosleepCommonality>
+    <itemQuality>Good</itemQuality>
+    <race>Human</race>
+    <initialResistanceRange>17~24</initialResistanceRange>
+    <gearHealthRange>1~2</gearHealthRange>
+    <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+    <techHediffsMoney>200~500</techHediffsMoney>
+    <apparelRequired>
+      <li>Apparel_ArmorRecon</li>
+    </apparelRequired>
+    <techHediffsTags>
+      <li>Poor</li>
+      <li>Simple</li>
+      <li>ImplantEmpireCommon</li>
+    </techHediffsTags>
+    <techHediffsChance>0.06</techHediffsChance>
+    <inventoryOptions>
+      <skipChance>0.95</skipChance>
+      <subOptionsChooseOne>
+        <li>
+          <thingDef>MedicineIndustrial</thingDef>
+          <countRange>1</countRange>
+        </li>
+        <li>
+          <thingDef>DV_Gorewine</thingDef>
+          <countRange>1~2</countRange>
+        </li>
+        <li>
+          <thingDef>Gold</thingDef>
+          <countRange>5~15</countRange>
+        </li>
+      </subOptionsChooseOne>
+    </inventoryOptions>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="PirateKeshigEliteBase">
+    <defName>DV_Bahadur_Keshig</defName>
+    <label>bahadur</label>
+    <apparelMoney>1200</apparelMoney>
+    <apparelColor>(70, 70, 70)</apparelColor>
+    <apparelRequired>
+      <li>Apparel_SimpleHelmet</li>
+    </apparelRequired>
+    <weaponMoney>1300~2000</weaponMoney>
+    <combatEnhancingDrugsChance>0.1</combatEnhancingDrugsChance>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_PirateKeshig</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>LongSword</li>
+      <li>MedievalMeleeAdvanced</li>
+      <li>KeshigScimitar</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="PirateKeshigEliteBase">
+    <defName>DV_Shade_Keshig</defName>
+    <label>obfuscator</label>
+    <combatPower>120</combatPower>
+    <apparelMoney>2000</apparelMoney>
+    <apparelColor>(70, 70, 70)</apparelColor>
+    <apparelRequired>
+      <li>Apparel_WarVeil</li>
+    </apparelRequired>
+    <skills>
+      <li>
+        <skill>Shooting</skill>
+        <range>8~14</range>
+      </li>
+    </skills>
+    <weaponMoney>1300~2000</weaponMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_PirateKeshig</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>GrenadeSmoke</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>UpperHead</bodyPartGroup>
+        <color>(118, 49, 57)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef MayRequire="Ludeon.Rimworld.Royalty" ParentName="PirateKeshigEliteBase">
+    <defName>DV_Assassin_Keshig</defName>
+    <label>bladesinger</label>
+    <combatPower>160</combatPower>
+    <apparelMoney>2000</apparelMoney>
+    <apparelColor>(70, 70, 70)</apparelColor>
+    <apparelRequired>
+      <li>Apparel_HatHood</li>
+    </apparelRequired>
+    <weaponMoney>1300~2000</weaponMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_PirateKeshig</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>KeshigCeremonialBlade</li>
+      <li>KeshigScimitar</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>UpperHead</bodyPartGroup>
+        <color>(118, 49, 57)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="PirateKeshigEliteBase">
+    <defName>DV_Ilkhan_Keshig</defName>
+    <label>ilkhan</label>
+    <combatPower>160</combatPower>
+    <apparelMoney>2500</apparelMoney>
+    <apparelColor>(70, 70, 70)</apparelColor>
+    <apparelRequired Inherit="False">
+      <li>Apparel_PowerArmor</li>
+      <li>Apparel_ShieldBelt</li>
+      <li>Apparel_AdvancedHelmet</li>
+    </apparelRequired>
+    <weaponMoney>1300~2000</weaponMoney>
+    <apparelTags Inherit="False" />
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_PirateKeshig</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>KeshigCeremonialBlade</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="PirateKeshigEliteBase">
+    <defName>DV_Khan_Keshig</defName>
+    <label>khan</label>
+    <apparelMoney>2500</apparelMoney>
+    <apparelColor>(118, 49, 57)</apparelColor>
+    <apparelRequired Inherit="False">
+      <li>Apparel_PowerArmor</li>
+      <li>Apparel_ShieldBelt</li>
+      <li>Apparel_PowerArmorHelmet</li>
+    </apparelRequired>
+    <weaponMoney>2000~3000</weaponMoney>
+    <apparelTags Inherit="False" />
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <defaultFactionType>DV_PirateKeshig</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>KeshigCeremonialBlade</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+    </specificApparelRequirements>
+  </PawnKindDef>
+-->
+</Defs>

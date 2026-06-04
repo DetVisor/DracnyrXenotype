@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef>
+    <defName>LTS_Gene_LongDash</defName>
+    <label>longdash legs</label>
+    <description>Carriers have archite-powered leg tendons which allow them to dash great distances in nearly a split second.</description>
+    <iconPath>UI/Genes/Gene_LongDash</iconPath>
+    <displayCategory>Archite</displayCategory>
+    <abilities>
+      <li>LTS_Ability_LongDash</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>LTS_Ability_LongDash</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>3</biostatCpx>
+    <biostatArc>1</biostatArc>
+    <symbolPack>
+      <wholeNameSymbols>
+        <li>
+          <symbol>rusher</symbol>
+        </li>
+        <li>
+          <symbol>dasher</symbol>
+        </li>
+        <li>
+          <symbol>sprinter</symbol>
+        </li>
+      </wholeNameSymbols>
+      <prefixSymbols>
+        <li>
+          <symbol>rush</symbol>
+        </li>
+        <li>
+          <symbol>dash</symbol>
+        </li>
+        <li>
+          <symbol>sprint</symbol>
+        </li>
+      </prefixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <AbilityDef>
+    <defName>LTS_Ability_LongDash</defName>
+    <label>longdash</label>
+    <description>Dash to a location using archite-powered tendons.</description>
+    <iconPath>UI/Abilities/LongDash</iconPath>
+    <cooldownTicksRange>10000~12000</cooldownTicksRange>
+    <hostile>true</hostile>
+    <aiCanUse>true</aiCanUse>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>LTS_DracnirGenes.Verb_CastAbilityDash</verbClass>
+      <label>dash</label>
+      <violent>false</violent>
+      <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+      <warmupTime>0.5</warmupTime>
+      <range>15.9</range>
+      <requireLineOfSight>true</requireLineOfSight>
+      <soundCast>Longjump_Jump</soundCast>
+      <soundLanding>Longjump_Land</soundLanding>
+      <targetParams>
+        <canTargetLocations>true</canTargetLocations>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+      </targetParams>
+    </verbProperties>
+    <jobDef>CastJump</jobDef>
+  </AbilityDef>
+
+
+  <ThingDef ParentName="EtherealThingBase">
+    <defName>LTS_DashPawnFlier</defName>
+    <label>dash</label>
+    <thingClass>PawnFlyer</thingClass>
+    <useHitPoints>false</useHitPoints>
+    <drawOffscreen>true</drawOffscreen>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Skyfaller</altitudeLayer>
+    <drawerType>RealtimeOnly</drawerType>
+
+    <!--<warmupEffecter>JumpWarmupEffect</warmupEffecter>
+        <flightEffecterDef>JumpFlightEffect</flightEffecterDef>-->
+
+    <pawnFlyer>
+      <flightDurationMin>0</flightDurationMin>
+      <flightSpeed>50</flightSpeed>
+      <workerClass>PawnFlyerWorker</workerClass>
+      <heightFactor>0</heightFactor>
+      <progressCurve>
+
+        <points>
+          <li>(0, 0)</li>
+
+          <li>(0.1, 0.02)</li>
+          <li>(0.2, 0.08)</li>
+          <li>(0.3, 0.18)</li>
+          <li>(0.4, 0.32)</li>
+          <li>(0.5, 0.5)</li>
+          <li>(0.6, 0.68)</li>
+          <li>(0.7, 0.82)</li>
+          <li>(0.8, 0.92)</li>
+          <li>(0.9, 0.98)</li>
+
+          <li>(1, 1)</li>
+        </points>
+      </progressCurve>
+    </pawnFlyer>
+  </ThingDef>
+
+  <GeneDef>
+    <defName>LTS_Gene_GeneSteal</defName>
+    <label>gene stealer</label>
+    <labelShortAdj>imitator</labelShortAdj>
+    <description>Carriers of this gene can copy the genes of another person through an extractor organ hidden within their canines. Unique specialized stem cells receive genetic data from the organ and can imitate it fully, fading after half a day. Their own genes will be unaffected.</description>
+    <iconPath>UI/Genes/Gene_GeneStealer</iconPath>
+    <displayCategory>Archite</displayCategory>
+    <abilities>
+      <li>LTS_Ability_GeneSteal</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>LTS_Ability_GeneSteal</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>3</biostatCpx>
+    <biostatArc>1</biostatArc>
+  </GeneDef>
+
+  <AbilityDef ParentName="AbilityTouchBase">
+    <defName>LTS_Ability_GeneSteal</defName>
+    <label>gene steal</label>
+    <description>Bite the target and copy genes directly from their genetic material. The target will be horrified but otherwise remain unharmed. A fast-acting coagulant will seal the wound to prevent bleeding.\n\nCan only target humans, and will only imitate positive genes.</description>
+    <iconPath>UI/Abilities/GeneSteal</iconPath>
+    <cooldownTicksRange>15000~17000</cooldownTicksRange>
+    <displayOrder>100</displayOrder>
+    <warmupEffecter>Bloodfeed_Warmup</warmupEffecter>
+    <warmupStartSound>Bloodfeed_Cast</warmupStartSound>
+    <hostile>true</hostile>
+    <casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+    <verbProperties>
+      <verbClass>Verb_CastAbilityTouch</verbClass>
+      <drawAimPie>false</drawAimPie>
+      <range>-1</range>
+      <warmupTime>2</warmupTime>
+      <targetParams>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <!--<canTargetBloodfeeders>false</canTargetBloodfeeders>-->
+        <canTargetAnimals>false</canTargetAnimals>
+      </targetParams>
+    </verbProperties>
+    <comps>
+      <li Class="LTS_DracnirGenes.CompProperties_AbilityGeneStealerBite">
+        <numberOfGenes>3</numberOfGenes>
+        <bloodFilthToSpawnRange>1</bloodFilthToSpawnRange>
+        <thoughtDefToGiveTarget>DV_Thought_GeneStolen</thoughtDefToGiveTarget>
+        <opinionThoughtDefToGiveTarget>DV_Thought_GeneStolen_Social</opinionThoughtDefToGiveTarget>
+        <geneLifespanTicks>15000</geneLifespanTicks>
+      </li>
+      <li Class="CompProperties_AbilityRequiresCapacity">
+        <capacity>Eating</capacity>
+      </li>
+    </comps>
+  </AbilityDef>
+
+  <ThoughtDef>
+    <defName>DV_Thought_GeneStolen</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>5</durationDays>
+    <nullifyingTraits>
+      <li>Masochist</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>genes stolen by {0}</label>
+        <description>I was bitten and violated by some genestealer.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>DV_Thought_GeneStolen_Social</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>60</durationDays>
+    <stackLimit>50</stackLimit>
+    <stackLimitForSameOtherPawn>10</stackLimitForSameOtherPawn>
+    <nullifyingTraits>
+      <li>Masochist</li>
+    </nullifyingTraits>
+    <stages>
+      <li>
+        <label>genestolen</label>
+        <baseOpinionOffset>-20</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

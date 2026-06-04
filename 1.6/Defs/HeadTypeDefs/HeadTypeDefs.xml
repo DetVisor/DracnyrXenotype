@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+<HeadTypeDef ParentName="AverageBase">
+    <defName>DV_Male_Sculpted</defName>
+    <randomChosen>false</randomChosen>
+    <graphicPath>Things/Pawn/Humanlike/Heads/Sculpted_AverageMale</graphicPath>
+    <gender>Male</gender>
+    <requiredGenes>
+        <li>DV_Body_SculptedBodies</li>
+    </requiredGenes>
+</HeadTypeDef>
+
+<HeadTypeDef ParentName="AverageBase">
+    <defName>DV_Female_Sculpted</defName>
+    <randomChosen>false</randomChosen>
+    <graphicPath>Things/Pawn/Humanlike/Heads/Sculpted_AverageFemale</graphicPath>
+    <gender>Female</gender>
+    <requiredGenes>
+        <li>DV_Body_SculptedBodies</li>
+    </requiredGenes>
+</HeadTypeDef>
+</Defs>

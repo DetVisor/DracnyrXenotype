@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <GeneDef ParentName="UVSensitivityBase">
+        <defName>DV_DarknessAdaptation</defName>
+        <label>darkness adaptation</label>
+        <labelShortAdj>darkness-adapted</labelShortAdj>
+        <description>Carriers of this gene have biological compounds in their body that are more efficient in darkness and shade, making them faster and stronger without light.</description>
+        <iconPath>UI/Genes/Gene_DarknessAdaptation</iconPath>
+        <displayOrderInCategory>50</displayOrderInCategory>
+        <conditionalStatAffecters>
+            <li Class="EBSGFramework.ConditionalStatAffecter_Light">
+                <label>darkness-adapted</label>
+                <statFactors>
+                    <MeleeDamageFactor>1.5</MeleeDamageFactor>
+                </statFactors>
+                <statOffsets>
+                    <MoveSpeed>1.4</MoveSpeed>
+                </statOffsets>
+                <lightLevel>0~0.4</lightLevel>
+            </li>
+        </conditionalStatAffecters>
+
+        <biostatCpx>2</biostatCpx>
+        <biostatMet>1</biostatMet>
+        <symbolPack>
+            <prefixSymbols>
+                <li>
+                    <symbol>dark</symbol>
+                </li>
+                <li>
+                    <symbol>shadow</symbol>
+                </li>
+                <li>
+                    <symbol>hidden</symbol>
+                </li>
+                <li>
+                    <symbol>moon</symbol>
+                </li>
+                <li>
+                    <symbol>drow</symbol>
+                </li>
+                <li>
+                    <symbol>dim</symbol>
+                </li>
+                <li>
+                    <symbol>night</symbol>
+                </li>
+            </prefixSymbols>
+        </symbolPack>
+    </GeneDef>
+
+    <GeneDef>
+        <defName>DV_Psychopathic</defName>
+        <label>lunatic</label>
+        <description>Carriers of this gene feel no empathy towards living beings. They'll have no second thoughts killing, butchering and enslaving other humans, and will take no joy in social interactions with them either.</description>
+        <iconPath>UI/Genes/Gene_Lunatic</iconPath>
+        <displayOrderInCategory>0</displayOrderInCategory>
+        <forcedTraits>
+            <li>
+                <def>Psychopath</def>
+            </li>
+        </forcedTraits>
+        <biostatMet>-1</biostatMet>
+        <symbolPack>
+            <prefixSymbols>
+                <li>
+                    <symbol>sociopath</symbol>
+                </li>
+                <li>
+                    <symbol>psycho</symbol>
+                </li>
+            </prefixSymbols>
+        </symbolPack>
+    </GeneDef>
+
+</Defs>

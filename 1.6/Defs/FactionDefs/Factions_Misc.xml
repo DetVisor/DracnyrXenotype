@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <FactionDef ParentName="FactionBase">
+    <defName>DV_DracnyrCult</defName>
+    <label>dracnyr cult</label>
+    <description>A tight-knit union of brutish, naturally armored keshig warriors. Although weary of outsiders, they are neutral to diplomatic contact, even allowing trade. They invade others with their skilled warriors without discretion, whether to pillage and steal or to assert their power.\n\nSpawned as a temporary invasion force under the control of a powerful empire, the rogue keshig now thrive on conquest, while still holding their beliefs of honor and loyalty.</description>
+    <factionIconPath>World/WorldObjects/Expanding/DracnyrBase</factionIconPath>
+    <factionNameMaker>DV_NamerFactionPirateKeshig</factionNameMaker>
+    <settlementNameMaker>DV_NamerSettlementPirateKeshig</settlementNameMaker>
+    <maxConfigurableAtWorldCreation>1</maxConfigurableAtWorldCreation>
+    <settlementGenerationWeight>1</settlementGenerationWeight>
+    <requiredCountAtGameStart>1</requiredCountAtGameStart>
+    <pawnSingular>dracnyr cultist</pawnSingular>
+    <pawnsPlural>dracnyr cultists</pawnsPlural>
+    <leaderTitle>dracnyr cultlord</leaderTitle>
+    <fixedLeaderKinds>
+      <li>DV_Khan_Keshig</li>
+    </fixedLeaderKinds>
+    <permanentEnemy>true</permanentEnemy>
+    <permanentEnemyToEveryoneExceptPlayer>false</permanentEnemyToEveryoneExceptPlayer>
+    <xenotypeSet Inherit="False">
+      <xenotypeChances>
+        <DV_Dracnyr>999</DV_Dracnyr>
+      </xenotypeChances>
+    </xenotypeSet>
+    <layerWhitelist MayRequire="Ludeon.RimWorld.Odyssey">
+      <li>Orbit</li>
+    </layerWhitelist>
+    <dialogFactionGreetingHostile>KeshigFactionGreetingHostile</dialogFactionGreetingHostile>
+    <dialogFactionGreetingHostileAppreciative>KeshigFactionGreetingHostileAppreciative</dialogFactionGreetingHostileAppreciative>
+    <dialogFactionGreetingWary>KeshigFactionGreetingWary</dialogFactionGreetingWary>
+    <dialogFactionGreetingWarm>KeshigFactionGreetingWarm</dialogFactionGreetingWarm>
+    <dialogMilitaryAidSent>KeshigMilitaryAidSent</dialogMilitaryAidSent>
+    <colorSpectrum Inherit="False">
+      <li>(88, 67, 136)</li>
+    </colorSpectrum>
+    <arrivalModeWhitelist>
+      <li>EdgeDrop</li>
+      <li>EdgeDropGroups</li>
+      <li>CenterDrop</li>
+      <li>RandomDrop</li>
+    </arrivalModeWhitelist>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Offworld</li>
+        </categories>
+        <commonality>0.9</commonality>
+      </li>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+        <commonality>0.1</commonality>
+      </li>
+    </backstoryFilters>
+    <caravanTraderKinds />
+    <visitorTraderKinds />
+
+    <fixedIdeo>true</fixedIdeo>
+    <ideoName>Flock of the Progenitor</ideoName>
+    <ideoDescription>Kahlom: Bringer of war, our god forged of tempered steel, brought us to battle and lead us to the conquest of Princeps. But, once accomplished our creators sought to destroy us, to reap our harvest. And so we ran, and Mivlak was born of the peace that came from our escape. The gods now dance in a beautiful waltz throughout, and our shamans communicate with them, for advice, and blessings. We raid, and destroy others to claim our homes. Without a claim, we are nothing.</ideoDescription>
+    <hiddenIdeo>false</hiddenIdeo>
+    <deityPresets>
+      <li>
+        <nameType>
+          <name>The Progenitor</name>
+          <type>Our creator</type>
+        </nameType>
+        <gender>Male</gender>
+        <iconPath>UI/Deities/DeityEvil</iconPath>
+      </li>
+      <li>
+        <nameType>
+          <name>Illyavrith</name>
+          <type>Vile god</type>
+        </nameType>
+        <gender>Male</gender>
+        <iconPath>UI/Deities/DeityGood</iconPath>
+      </li>
+    </deityPresets>
+    <requiredMemes Inherit="False"/>
+    <forcedMemes>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Structure_TheistAbstract</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">PainIsVirtue</li>
+    </forcedMemes>
+    <allowedMemes Inherit="False">
+      <li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">HumanPrimacy</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">PainIsVirtue</li>
+    </allowedMemes>
+    <disallowedPrecepts>
+      <li MayRequire="Ludeon.RimWorld.Ideology">ApparelDesired_Strong_Subordinate</li>      <!-- Never generate with any apparel precepts -->
+      <li MayRequire="Ludeon.RimWorld.Ideology">ApparelDesired_Soft_Subordinate</li>
+
+      <li MayRequire="Ludeon.RimWorld.Ideology">IdeoDiversity_Exalted</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">IdeoDiversity_Respected</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">IdeoDiversity_Approved</li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">IdeoDiversity_Standard</li>
+
+      <li MayRequire="Ludeon.RimWorld.Ideology">Scarification_Heavy</li>
+    </disallowedPrecepts>
+    <apparelStuffFilter>
+      <stuffCategoriesToAllow>
+        <li>Metallic</li>
+        <li>Fabric</li>
+      </stuffCategoriesToAllow>
+    </apparelStuffFilter>
+    <maxPawnCostPerTotalPointsCurve>
+      <points>
+        <li>(500, 100)</li>
+        <li>(1000, 150)</li>
+        <li>(2000, 250)</li>
+        <li>(2001, 10000)</li>
+      </points>
+    </maxPawnCostPerTotalPointsCurve>
+    <pawnGroupMakers Inherit="False">
+      <li>
+        <!-- Normal fights, mostly nokud, with some ravagers, bahadurs. -->
+        <kindDef>Combat</kindDef>
+        <commonality>100</commonality>
+        <options>
+          <DV_Nokud_Keshig>14</DV_Nokud_Keshig>
+          <DV_Ravager_Keshig>10</DV_Ravager_Keshig>
+          <DV_Boyan_Keshig>4</DV_Boyan_Keshig>
+          <DV_Bahadur_Keshig>3</DV_Bahadur_Keshig>
+          <DV_Assassin_Keshig MayRequire="Ludeon.Rimworld.Royalty">3</DV_Assassin_Keshig>
+          <Warg>10</Warg>
+        </options>
+      </li>
+      <li>
+        <!-- Elite fight -->
+        <kindDef>Combat</kindDef>
+        <commonality>30</commonality>
+        <options>
+          <DV_Bahadur_Keshig>12</DV_Bahadur_Keshig>
+          <DV_Assassin_Keshig MayRequire="Ludeon.Rimworld.Royalty">8</DV_Assassin_Keshig>
+          <DV_Shade_Keshig>5</DV_Shade_Keshig>
+          <Warg>5</Warg>
+        </options>
+      </li>
+      <li>
+        <!-- Normal fights, berserkers only (very rare) -->
+        <kindDef>Combat</kindDef>
+        <commonality>2.5</commonality>
+        <maxTotalPoints>1000</maxTotalPoints>
+        <options>
+          <DV_Nokud_Keshig>12</DV_Nokud_Keshig>
+          <Warg>6</Warg>
+        </options>
+      </li>
+      <li>
+        <!-- Base defense, mainly ranged with melee mix-ins -->
+        <kindDef>Settlement</kindDef>
+        <options>
+          <DV_Boyan_Keshig>6</DV_Boyan_Keshig>
+          <DV_Nokud_Keshig>10</DV_Nokud_Keshig>
+          <DV_Ravager_Keshig>6</DV_Ravager_Keshig>
+          <DV_Bahadur_Keshig>8</DV_Bahadur_Keshig>
+          <DV_Ilkhan_Keshig>6</DV_Ilkhan_Keshig>
+          <Warg>12</Warg>
+          <Bear_Grizzly>3</Bear_Grizzly>
+        </options>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">
+        <kindDef>Miners</kindDef>
+        <commonality>1</commonality>
+        <options>
+          <Miner>1</Miner>
+        </options>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">
+        <kindDef>Hunters</kindDef>
+        <commonality>1</commonality>
+        <options>
+          <Hunter>1</Hunter>
+        </options>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">
+        <kindDef>Loggers</kindDef>
+        <commonality>1</commonality>
+        <options>
+          <Logger>1</Logger>
+        </options>
+      </li>
+      <li MayRequire="Ludeon.RimWorld.Ideology">
+        <kindDef>Farmers</kindDef>
+        <commonality>1</commonality>
+        <options>
+          <Farmer>1</Farmer>
+        </options>
+      </li>
+    </pawnGroupMakers>
+  </FactionDef>
+
+</Defs>

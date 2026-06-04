@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <StyleItemCategoryDef>
+    <defName>Dracnyr</defName>
+    <label>dracnyr</label>
+  </StyleItemCategoryDef>
+
+  <HairDef Name="DV_DracnyrHairBase" Abstract="True">
+    <category>Dracnyr</category>
+    <requiredGene>DV_Hair_Dracnyr</requiredGene>
+    <styleTags>
+      <li>Dracnyr</li>
+      <li>Shaved</li>
+      <li>Urban</li>
+      <li>Punk</li>
+      <li>Rural</li>
+      <li>Tribal</li>
+      <li>Soldier</li>
+      <li>HairShort</li>
+    </styleTags>
+  </HairDef>
+
+  <HairDef ParentName="DV_DracnyrHairBase">
+    <defName>DV_Progenitor</defName>
+    <label>progenitor</label>
+    <styleGender>Any</styleGender>
+    <texPath>Things/Pawn/Humanlike/Hairs/Progenitor</texPath>
+  </HairDef>
+
+    <HairDef ParentName="DV_DracnyrHairBase">
+    <defName>DV_Ancestor</defName>
+    <label>ancestor</label>
+    <styleGender>Any</styleGender>
+    <texPath>Things/Pawn/Humanlike/Hairs/Ancestor</texPath>
+  </HairDef>
+
+  <HairDef ParentName="DV_DracnyrHairBase">
+    <defName>DV_Forebear</defName>
+    <label>forebear</label>
+    <styleGender>Any</styleGender>
+    <texPath>Things/Pawn/Humanlike/Hairs/Forebear</texPath>
+  </HairDef>
+
+
+</Defs>

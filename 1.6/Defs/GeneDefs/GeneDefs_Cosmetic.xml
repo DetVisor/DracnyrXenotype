@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GeneDef ParentName="GeneHairStyleBase">
+    <defName>DV_Hair_Dracnyr</defName>
+    <label>extra long hair</label>
+    <description>Carriers of this gene grow long hair that naturally forms into dreadlocks.</description>
+    <iconPath>UI/Genes/Gene_ExtraLongHair</iconPath>
+    <displayOrderInCategory>57</displayOrderInCategory>
+    <hairTagFilter>
+      <whitelist>true</whitelist>
+      <tags>
+        <li>Dracnyr</li>
+      </tags>
+    </hairTagFilter>
+  </GeneDef>
+
+  <GeneDef>
+    <defName>DV_Body_SculptedBodies</defName>
+    <label>sculpted bodies</label>
+    <labelShortAdj>sculpted</labelShortAdj>
+    <description>Carriers of this gene have naturally sculpted and muscular bodies, even with no exercise.</description>
+    <iconPath>UI/Genes/Gene_SculptedBody</iconPath>
+    <displayOrderInCategory>0</displayOrderInCategory>
+    <displayCategory>Cosmetic</displayCategory>
+    <biostatCpx>0</biostatCpx>
+    <bodyType>Standard</bodyType>
+    <forcedHeadTypes>
+      <li>DV_Male_Sculpted</li>
+      <li>DV_Female_Sculpted</li>
+    </forcedHeadTypes>
+    <fur>DV_Sculpted</fur>
+    <skinIsHairColor>false</skinIsHairColor>
+    <tattoosVisible>true</tattoosVisible>
+    <renderNodeProperties>
+      <li>
+        <debugLabel>Fur</debugLabel>
+        <nodeClass>PawnRenderNode_Fur</nodeClass>
+        <workerClass>PawnRenderNodeWorker_Fur</workerClass>
+        <baseLayer>5</baseLayer>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <colorType>Skin</colorType>
+        <parentTagDef>Body</parentTagDef>
+      </li>
+    </renderNodeProperties>
+    <modExtensions>
+      <li Class="VEF.Genes.GeneExtension">
+        <useSkinColorForFur>true</useSkinColorForFur>
+        <furHidesBody>true</furHidesBody>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <FurDef>
+    <defName>DV_Sculpted</defName>
+    <noGraphic>true</noGraphic>
+    <bodyTypeGraphicPaths>
+      <Male>Things/Pawn/Humanlike/Bodies/Sculpted_Male</Male>
+      <Female>Things/Pawn/Humanlike/Bodies/Sculpted_Female</Female>
+      <Hulk>Things/Pawn/Humanlike/Bodies/FurCovered_Hulk</Hulk>
+      <Fat>Things/Pawn/Humanlike/Bodies/FurCovered_Fat</Fat>
+      <Thin>Things/Pawn/Humanlike/Bodies/FurCovered_Thin</Thin>
+      <Child>Things/Pawn/Humanlike/Bodies/Naked_FurChild</Child>
+      <Baby>Things/Pawn/Humanlike/Bodies/Naked_FurChild</Baby>      <!-- Always covered by swaddled graphic -->
+    </bodyTypeGraphicPaths>
+  </FurDef>
+
+  <GeneDef ParentName="GeneHeadboneBase">
+    <defName>DV_Headbone_HornHalo</defName>
+    <label>horn halo</label>
+    <labelShortAdj>horned</labelShortAdj>
+    <description>Carriers of this gene grow a large horn-like mass from their nose and brow, which curls into an halo-like shape to the back of their head.</description>
+    <iconPath>UI/Genes/Gene_HornHalo</iconPath>
+    <displayOrderInCategory>0</displayOrderInCategory>
+    <displayCategory>Cosmetic</displayCategory>
+    <iconColor>(0.75, 0.75, 0.75)</iconColor>
+    <biostatCpx>1</biostatCpx>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <parentTagDef>Head</parentTagDef>
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/HornHalo/HornHalo</texPath>
+        <color>(255, 255, 255)</color>
+        <visibleFacing>
+          <li>East</li>
+          <li>South</li>
+          <li>West</li>
+          <li>North</li>
+        </visibleFacing>
+        <drawData>
+          <defaultData>
+            <layer>72</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>-10</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneEarsBase">
+    <defName>DV_Ears_Sharp</defName>
+    <label>sharp ears</label>
+    <description>Carriers of this gene have sharp, knife-like ears.</description>
+    <iconPath>UI/Genes/Gene_SharpEars</iconPath>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPath>Things/Pawn/Humanlike/HeadAttachments/KnifeEars/KnifeEars</texPath>
+        <colorType>Skin</colorType>
+        <parentTagDef>Head</parentTagDef>
+        <useSkinShader>true</useSkinShader>
+        <useRottenColor>true</useRottenColor>
+        <rotDrawMode>Fresh, Rotting</rotDrawMode>
+        <drawData>
+          <defaultData>
+            <layer>55</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>-5</layer>
+          </dataNorth>
+          <dataEast>
+            <layer>71</layer>
+          </dataEast>
+          <dataWest>
+            <layer>71</layer>
+          </dataWest>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>point</symbol>
+        </li>
+        <li>
+          <symbol>sharp</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>ear</symbol>
+        </li>
+        <li>
+          <symbol>point</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneSkinColorOverride">
+    <defName>Skin_DeepBlue</defName>
+    <label>deep blue</label>
+    <labelShortAdj>blue</labelShortAdj>
+    <description>Carriers of this gene produce a pigment that gives their skin a deep blue color.</description>
+    <randomBrightnessFactor>0.2</randomBrightnessFactor>
+    <skinColorOverride>(56, 59, 94)</skinColorOverride>
+    <displayOrderInCategory>65</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>deep</symbol>
+        </li>
+        <li>
+          <symbol>galaxy</symbol>
+        </li>
+        <li>
+          <symbol>blue</symbol>
+        </li>
+      </prefixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <GeneDef ParentName="GeneHairColorBase">
+    <defName>Hair_LightBlack</defName>
+    <label>dark gray hair</label>
+    <hairColorOverride>(50, 50, 50)</hairColorOverride>
+    <selectionWeight>0.05</selectionWeight>
+    <displayOrderInCategory>130</displayOrderInCategory>
+    <randomBrightnessFactor>0</randomBrightnessFactor>
+  </GeneDef>
+
+</Defs>
