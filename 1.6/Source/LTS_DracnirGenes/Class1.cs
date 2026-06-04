@@ -204,6 +204,15 @@ namespace LTS_DracnirGenes
         }
     }
 
+    public class PawnsArrivalModeWorker_DracnyrEclipseRaid : PawnsArrivalModeWorker_EdgeWalkIn
+    {
+        public override void Arrive(List<Pawn> pawns, IncidentParms parms)
+        {
+            base.Arrive(pawns, parms);
+            parms.target.GameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(duration: Mathf.RoundToInt(0.75f * 60000f), def: GameConditionDef.Named("LTS_DracnyrEclipse")));//should create a 9 hour LTS_DracnyrEclipse
+        }
+    }
+
 
 
 

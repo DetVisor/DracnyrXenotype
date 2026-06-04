@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <PawnsArrivalModeDef>
+        <defName>LTS_PawnsArrivalMode_DracnyrEclipseRaid</defName>
+        <workerClass>LTS_DracnirGenes.PawnsArrivalModeWorker_DracnyrEclipseRaid</workerClass>
+        <selectionWeightCurve>
+          <points>
+            <li>(0, 1)</li> <!--should exclude all factions besides Dracnyr(?)-->
+          </points>
+        </selectionWeightCurve>
+        <textEnemy>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.\n\nA group of {0} from {1} have arrived under the cover of this darkness.</textEnemy>
+        <textFriendly>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.\n\nA group of friendly {0} from {1} have arrived under the cover of this darkness.</textFriendly>
+        <textWillArrive>{0_pawnsPluralDef} will arrive under the cover of darkness.</textWillArrive>
+        <walkIn>true</walkIn>
+		
+		<selectionWeightCurvesPerFaction>
+			<li>
+				<faction>DV_DracnyrCult</faction>
+				<selectionWeightPerPointsCurve>
+					<points>
+						<li>(1, 1)</li> <!--should make Dracnyr always use this method(?)-->
+					</points>
+				</selectionWeightPerPointsCurve>
+			</li>
+		</selectionWeightCurvesPerFaction>
+		<layerBlacklist>
+			<li MayRequire="ludeon.rimworld.odyssey">Orbit</li>
+		</layerBlacklist>
+    </PawnsArrivalModeDef>
+</Defs>

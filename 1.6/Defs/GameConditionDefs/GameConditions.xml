@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <GameConditionDef>
+    <defName>LTS_DracnyrEclipse</defName>
+    <conditionClass>GameCondition_NoSunlight</conditionClass>
+    <label>dracnyr shadow</label>
+	<description>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water. It will be dark, even during the daytime.</description>
+    <endMessage>The darkness is dissipating.</endMessage>
+    <!--<letterText>One of the moons of this planet has orbited in front of the sun. An eclipse has begun.</letterText>
+    <letterDef>NegativeEvent</letterDef>-->
+    <canBePermanent>false</canBePermanent>
+    <allowUnderground>false</allowUnderground>
+    <canAffectAllPlanetLayers>true</canAffectAllPlanetLayers>
+    <!--<silencedByConditions>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">UnnaturalDarkness</li>
+    </silencedByConditions>-->
+  </GameConditionDef>
+
+</Defs>
