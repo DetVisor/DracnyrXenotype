@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <RaidStrategyDef>
+    <defName>LTS_DracnyrEclipseRaid</defName>
+    <workerClass>RaidStrategyWorker_ImmediateAttack</workerClass>
+    <selectionWeightPerPointsCurve>
+      <points>
+        <li>(0, 0)</li>
+      </points>
+    </selectionWeightPerPointsCurve>
+    <selectionWeightCurvesPerFaction>
+      <li>
+        <faction>DV_PirateKeshig</faction>
+        <selectionWeightPerPointsCurve>
+          <points>
+			<li>(0, 999999)</li>
+          </points>
+        </selectionWeightPerPointsCurve>
+      </li>
+    </selectionWeightCurvesPerFaction>
+	<pointsFactorCurve>
+      <points>
+        <li>0, 1</li>
+      </points>
+    </pointsFactorCurve>
+    <arriveModes>
+      <li>LTS_DracnyrEclipseRaid</li>
+    </arriveModes>
+    <letterLabelEnemy>Raid</letterLabelEnemy>
+    <arrivalTextEnemy>They are attacking immediately.\n\nAdditionally, an unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.</arrivalTextEnemy>
+    <letterLabelFriendly>Friendlies</letterLabelFriendly>
+    <arrivalTextFriendly>They are moving in to help you immediately.\n\nAdditionally a device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.</arrivalTextFriendly>
+  </RaidStrategyDef>
+
+  <PawnsArrivalModeDef>
+    <defName>LTS_DracnyrEclipseRaid</defName>
+    <workerClass>LTS_DracnirGenes.PawnsArrivalModeWorker_DracnyrEclipseRaid</workerClass>
+    <selectionWeightCurve>
+      <points>
+        <li>(0, 1)</li> <!--Constant 1 -->
+      </points>
+    </selectionWeightCurve>
+	<textEnemy>The {0} from {1} have arrived under the cover of darkness.</textEnemy>
+    <textWillArrive>{0_pawnsPluralDef} will arrive under the cover of darkness.</textWillArrive>
+    <layerBlacklist>
+	  <li MayRequire="ludeon.rimworld.odyssey">Orbit</li>
+	</layerBlacklist>
+  </PawnsArrivalModeDef>
+  
+  <GameConditionDef>
+    <defName>LTS_DracnyrEclipse</defName>
+    <conditionClass>GameCondition_NoSunlight</conditionClass>
+    <label>Illyavrith's shadow</label>
+	<description>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water. It will be dark, even during the daytime.</description>
+    <endMessage>The darkness is dissipating.</endMessage>
+    <canBePermanent>false</canBePermanent>
+    <allowUnderground>false</allowUnderground>
+    <canAffectAllPlanetLayers>true</canAffectAllPlanetLayers>
+	<natural>false</natural>
+  </GameConditionDef>
+  
+  <!--<PawnsArrivalModeDef>
+        <defName>LTS_DracnyrEclipseRaid</defName>
+        <workerClass>LTS_DracnirGenes.PawnsArrivalModeWorker_DracnyrEclipseRaid</workerClass>
+        <selectionWeightCurve>
+          <points>
+            <li>(1, 0)</li>
+          </points>
+        </selectionWeightCurve>
+        <textEnemy>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.\n\nA group of {0} from {1} have arrived under the cover of this darkness.</textEnemy>
+        <textFriendly>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.\n\nA group of friendly {0} from {1} have arrived under the cover of this darkness.</textFriendly>
+        <textWillArrive>{0_pawnsPluralDef} will arrive under the cover of darkness.</textWillArrive>
+        <walkIn>true</walkIn>
+		
+		<selectionWeightCurvesPerFaction>
+			<li>
+				<faction>DV_PirateKeshig</faction>
+				<selectionWeightPerPointsCurve>
+					<points>
+						<li>(1, 100000)</li>
+					</points>
+				</selectionWeightPerPointsCurve>
+			</li>
+		</selectionWeightCurvesPerFaction>
+		<layerBlacklist>
+			<li MayRequire="ludeon.rimworld.odyssey">Orbit</li>
+		</layerBlacklist>
+    </PawnsArrivalModeDef>-->
+  
+</Defs>
