@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <thingClass>ThingWithComps</thingClass>
+    <defName>LTS_DracnyrEndogerm</defName>
+    <label>dracnyr endogerm</label>
+    <description>.</description>
+    <graphicData>
+      <texPath>Things/Item/Special/MechSerumHealer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MarketValue>1300</MarketValue>
+    </statBases>
+	<resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>0.2</Mass>
+      <DeteriorationRate>2.0</DeteriorationRate>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+	<thingCategories>
+      <li>Artifacts</li>
+    </thingCategories>
+    <tradeability>Sellable</tradeability>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use {0_label}</useLabel>
+        <useDuration>600</useDuration>
+        <showUseGizmo>true</showUseGizmo>
+      </li>
+      
+      <li Class="CompProperties_UseEffectPlaySound">
+        <soundOnUsed>MechSerumUsed</soundOnUsed>
+      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
+	  
+	  <li Class="CompProperties_UseEffectAddHediff">
+        <hediffDef>LTS_EndogerminationComa</hediffDef>
+      </li>
+	  <li Class="LTS_DracnirGenes.CompProperties_UseEffectSetXenotype">
+        <xenotypeDef>DV_Dracnyr</xenotypeDef>
+		<setEndogene>true</setEndogene>
+      </li>
+	  
+    </comps>
+    <!--<thingSetMakerTags>
+      <li>RewardStandardCore</li>
+    </thingSetMakerTags>-->
+  </ThingDef>
+  
+  <RecipeDef>
+    <defName>LTS_AdministerDracnyrEndogerm</defName>
+    <label>administer Dracnyr endogerm</label>
+    <description>Administer a Dracnyr endogerm.</description>
+    <workerClass>Recipe_AdministerUsableItem</workerClass>
+    <jobString>Administering Dracnyr endogerm.</jobString>
+    <targetsBodyPart>false</targetsBodyPart>
+    <anesthetize>false</anesthetize>
+    <workAmount>600</workAmount>
+    <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <surgeryOutcomeEffect IsNull="True"/>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>LTS_DracnyrEndogerm</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>LTS_DracnyrEndogerm</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
+
+</Defs>

@@ -26,17 +26,17 @@ namespace LTS_DracnirGenes
         }
     }
 
-    //[StaticConstructorOnStartup]
-    //public static class HarmonyPatches
-    //{
-    //    static HarmonyPatches()
-    //    {
-    //        Harmony harmony = new Harmony("rimworld.LTS.DracnirGenes");
-    //        //Harmony.DEBUG = true;
-    //        harmony.PatchAll();
-    //        //harmony.PatchAll(Assembly.GetExecutingAssembly());
-    //    }
-    //}
+    ////[StaticConstructorOnStartup]
+    ////public static class HarmonyPatches
+    ////{
+    ////    static HarmonyPatches()
+    ////    {
+    ////        Harmony harmony = new Harmony("rimworld.LTS.DracnirGenes");
+    ////        //Harmony.DEBUG = true;
+    ////        harmony.PatchAll();
+    ////        //harmony.PatchAll(Assembly.GetExecutingAssembly());
+    ////    }
+    ////}
 
     public class DracnirGene : Gene
     {
@@ -213,6 +213,31 @@ namespace LTS_DracnirGenes
         }
     }
 
+    public class CompProperties_UseEffectSetXenotype : CompProperties_UseEffect
+    {
+        public CompProperties_UseEffectSetXenotype()
+        {
+            this.compClass = typeof(CompUseEffect_SetXenotype);
+        }
+        public XenotypeDef xenotypeDef;
+        public bool setEndogene;
+    }
+
+    public class CompUseEffect_SetXenotype : CompUseEffect
+    {
+        public CompProperties_UseEffectSetXenotype Props
+        {
+            get
+            {
+                return (CompProperties_UseEffectSetXenotype)this.props;
+            }
+        }
+        public override void DoEffect(Pawn user)
+        {
+            user.genes.SetXenotype(Props.xenotypeDef);
+        }
+    }
+
 
 
 
@@ -326,99 +351,129 @@ namespace LTS_DracnirGenes
             return cloneMethod.Invoke(obj, null);
         }
     }
-    //[HarmonyPatch(typeof(GeneDefGenerator), nameof(GeneDefGenerator.ImpliedGeneDefs))]
-    //class GeneDefGenerator_ImpliedGeneDefs_Patch
-    //{
-    //    [HarmonyPostfix]
-    //    public static IEnumerable<GeneDef> GeneDefGenerator_ImpliedGeneDefs_Postfix(IEnumerable<GeneDef> values)
-    //    {
-    //        if (values.EnumerableNullOrEmpty())
-    //        {
-    //            return values;
-    //        }
+    ////[HarmonyPatch(typeof(GeneDefGenerator), nameof(GeneDefGenerator.ImpliedGeneDefs))]
+    ////class GeneDefGenerator_ImpliedGeneDefs_Patch
+    ////{
+    ////    [HarmonyPostfix]
+    ////    public static IEnumerable<GeneDef> GeneDefGenerator_ImpliedGeneDefs_Postfix(IEnumerable<GeneDef> values)
+    ////    {
+    ////        if (values.EnumerableNullOrEmpty())
+    ////        {
+    ////            return values;
+    ////        }
 
-    //        List<GeneDef> resultingList = values.ToList();
+    ////        List<GeneDef> resultingList = values.ToList();
 
-    //        List<GeneDef> validGenes = DefDatabase<GeneDef>.AllDefsListForReading.Where(x => ValidGene(x)).ToList();
+    ////        List<GeneDef> validGenes = DefDatabase<GeneDef>.AllDefsListForReading.Where(x => ValidGene(x)).ToList();
 
-    //        //foreach (GeneDef generatedGene in GeneDefGenerator.ImpliedGeneDefs(false).Where(x => ValidGene(x)))
-    //        //{
-    //        //    Log.Message(generatedGene.defName);
-    //        //    validGenes.Add(generatedGene);
-    //        //}
+    ////        //foreach (GeneDef generatedGene in GeneDefGenerator.ImpliedGeneDefs(false).Where(x => ValidGene(x)))
+    ////        //{
+    ////        //    Log.Message(generatedGene.defName);
+    ////        //    validGenes.Add(generatedGene);
+    ////        //}
 
-    //        validGenes.Concat((List<GeneDef>)GenDefDatabase.GetAllDefsInDatabaseForDef(typeof(GeneDef)));
+    ////        validGenes.Concat((List<GeneDef>)GenDefDatabase.GetAllDefsInDatabaseForDef(typeof(GeneDef)));
 
-    //        if (!validGenes.NullOrEmpty())
-    //        {
-    //            foreach (var geneDef in validGenes)
-    //            {
-    //                resultingList.Add(GetDracnirGene(geneDef));
+    ////        if (!validGenes.NullOrEmpty())
+    ////        {
+    ////            foreach (var geneDef in validGenes)
+    ////            {
+    ////                resultingList.Add(GetDracnirGene(geneDef));
 
-    //            }
-    //        }
-    //        return resultingList;
-    //    }
+    ////            }
+    ////        }
+    ////        return resultingList;
+    ////    }
 
-    //    public static bool ValidGene(GeneDef geneDef)
-    //    {
-    //        bool archogeneCheck = geneDef.biostatArc == 0;
-    //        //bool nonCosmeticCheck = geneDef.displayCategory == GeneCategoryDef.
-    //        bool positiveCheck = geneDef.biostatMet < 0;//must be negative
-    //        bool prerequisiteCheck = geneDef.prerequisite == null;
-    //        return archogeneCheck && positiveCheck && prerequisiteCheck && !geneDef.defName.Contains("Randomizer") && !geneDef.defName.Contains("VREA_") && !geneDef.defName.Contains("VREW_Pollution") && !geneDef.defName.Contains("_Astrogene");
-    //    }
+    ////    public static bool ValidGene(GeneDef geneDef)
+    ////    {
+    ////        bool archogeneCheck = geneDef.biostatArc == 0;
+    ////        //bool nonCosmeticCheck = geneDef.displayCategory == GeneCategoryDef.
+    ////        bool positiveCheck = geneDef.biostatMet < 0;//must be negative
+    ////        bool prerequisiteCheck = geneDef.prerequisite == null;
+    ////        return archogeneCheck && positiveCheck && prerequisiteCheck && !geneDef.defName.Contains("Randomizer") && !geneDef.defName.Contains("VREA_") && !geneDef.defName.Contains("VREW_Pollution") && !geneDef.defName.Contains("_Astrogene");
+    ////    }
 
-    //    private static GeneDef GetDracnirGene(GeneDef geneDef)
-    //    {
-    //        GeneDef clonedGene = (GeneDef)Clone(geneDef);
+    ////    private static GeneDef GetDracnirGene(GeneDef geneDef)
+    ////    {
+    ////        GeneDef clonedGene = (GeneDef)Clone(geneDef);
 
-    //        clonedGene.defName = geneDef.defName + "_DracnirCopy";
-    //        clonedGene.geneClass = typeof(DracnirGene);
-    //        clonedGene.selectionWeight = 0;
-    //        clonedGene.biostatCpx = 0;
-    //        clonedGene.biostatMet = 0;
+    ////        clonedGene.defName = geneDef.defName + "_DracnirCopy";
+    ////        clonedGene.geneClass = typeof(DracnirGene);
+    ////        clonedGene.selectionWeight = 0;
+    ////        clonedGene.biostatCpx = 0;
+    ////        clonedGene.biostatMet = 0;
 
-    //        clonedGene.displayOrderInCategory += 99999;
+    ////        clonedGene.displayOrderInCategory += 99999;
 
-    //        var existingGeneExtension = clonedGene.GetModExtension<GeneExtension>();
-    //        if (existingGeneExtension != null)
-    //        {
-    //            clonedGene.modExtensions.Remove(existingGeneExtension);
-    //            var clonedGeneExtension = (GeneExtension)Clone(existingGeneExtension);
+    ////        var existingGeneExtension = clonedGene.GetModExtension<GeneExtension>();
+    ////        if (existingGeneExtension != null)
+    ////        {
+    ////            clonedGene.modExtensions.Remove(existingGeneExtension);
+    ////            var clonedGeneExtension = (GeneExtension)Clone(existingGeneExtension);
 
-    //            clonedGeneExtension.backgroundPathXenogenes = "UI/GeneBackground_DracnirGene";
-    //            clonedGeneExtension.backgroundPathXenogenes = "UI/GeneBackground_DracnirGene";
-    //            clonedGeneExtension.disableGeneExtraction = true;
+    ////            clonedGeneExtension.backgroundPathXenogenes = "UI/GeneBackground_DracnirGene";
+    ////            clonedGeneExtension.backgroundPathXenogenes = "UI/GeneBackground_DracnirGene";
+    ////            clonedGeneExtension.disableGeneExtraction = true;
 
-    //            clonedGene.modExtensions.Add(clonedGeneExtension);
+    ////            clonedGene.modExtensions.Add(clonedGeneExtension);
 
-    //        }
-    //        else
-    //        {
-    //            //clonedGene.modExtensions ??= new List<DefModExtension>();
-    //            if (clonedGene.modExtensions == null)
-    //                clonedGene.modExtensions = new List<DefModExtension>();
-    //            clonedGene.modExtensions.Add(new GeneExtension
-    //            {
-    //                backgroundPathXenogenes = "UI/GeneBackground_DracnirGene",
-    //                backgroundPathEndogenes = "UI/GeneBackground_DracnirGene",
-    //                disableGeneExtraction = true,
-    //            });
-    //        }
+    ////        }
+    ////        else
+    ////        {
+    ////            //clonedGene.modExtensions ??= new List<DefModExtension>();
+    ////            if (clonedGene.modExtensions == null)
+    ////                clonedGene.modExtensions = new List<DefModExtension>();
+    ////            clonedGene.modExtensions.Add(new GeneExtension
+    ////            {
+    ////                backgroundPathXenogenes = "UI/GeneBackground_DracnirGene",
+    ////                backgroundPathEndogenes = "UI/GeneBackground_DracnirGene",
+    ////                disableGeneExtraction = true,
+    ////            });
+    ////        }
 
-    //        clonedGene.canGenerateInGeneSet = false;
-    //        clonedGene.ResolveDefNameHash();
-    //        StaticCollections.allDracnirGenes.Add(clonedGene);
+    ////        clonedGene.canGenerateInGeneSet = false;
+    ////        clonedGene.ResolveDefNameHash();
+    ////        StaticCollections.allDracnirGenes.Add(clonedGene);
 
-    //        return clonedGene;
-    //    }
-    //    public static object Clone(object obj)
-    //    {
-    //        var cloneMethod = obj.GetType().GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
-    //        return cloneMethod.Invoke(obj, null);
-    //    }
-    //}
+    ////        return clonedGene;
+    ////    }
+    ////    public static object Clone(object obj)
+    ////    {
+    ////        var cloneMethod = obj.GetType().GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
+    ////        return cloneMethod.Invoke(obj, null);
+    ////    }
+    ////}
+    [HarmonyPatch(typeof(ShotReport), "AimOnTargetChance_StandardTarget", MethodType.Getter)]
+    class ShotReport_AimOnTargetChance_StandardTarget_Patch //adds hit chance offset effect
+    {
+        [HarmonyPostfix]
+        public static void ShotReport_AimOnTargetChance_StandardTarget_Postfix(ref float __result, TargetInfo ___target)
+        {
+            if ((___target.Thing is Pawn) && ___target.Thing.GetStatValue(StatDef.Named("LTS_AccuracyAgainstMeOffset")) != 0)
+            {
+                __result += ___target.Thing.GetStatValue(StatDef.Named("LTS_AccuracyAgainstMeOffset"));
+                if (__result < 0.0201f)
+                {
+                    __result = 0.0201f;
+                }
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(ShotReport), nameof(ShotReport.GetTextReadout))]
+    class ShotReport_GetTextReadout_Patch //adds hit chance offset text to hover over lable
+    {
+        [HarmonyPostfix]
+        public static void ShotReport_GetTextReadout_Postfix(ref string __result, TargetInfo ___target)
+        {
+            if (___target.Thing?.GetStatValue(StatDef.Named("LTS_AccuracyAgainstMeOffset")) != 0)
+            {
+                __result += "   Targetability: " + ___target.Thing.GetStatValue(StatDef.Named("LTS_AccuracyAgainstMeOffset")).ToStringPercent();
+            }
+        }
+    }
+
     [StaticConstructorOnStartup]
     public static class StaticCollections
     {
