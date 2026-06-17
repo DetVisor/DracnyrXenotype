@@ -251,6 +251,17 @@ namespace LTS_DracnirGenes
         }
     }
 
+    [DefOf]
+    public static class LTS_Dracnyr_DefOf
+    {
+        public static XenotypeDef DV_Dracnyr;
+
+        static LTS_Dracnyr_DefOf()
+        {
+            DefOfHelper.EnsureInitializedInCtor(typeof(LTS_Dracnyr_DefOf));
+        }
+    }
+
     [HarmonyPatch(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PostResolve))]
     class DefGenerator_GenerateImpliedDefs_PostResolve_Patch
     {
@@ -470,6 +481,19 @@ namespace LTS_DracnirGenes
             if (___target.Thing?.GetStatValue(StatDef.Named("LTS_AccuracyAgainstMeOffset")) != 0)
             {
                 __result += "   Targetability: " + ___target.Thing.GetStatValue(StatDef.Named("LTS_AccuracyAgainstMeOffset")).ToStringPercent();
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(Faction), nameof(Faction.Notify_PawnJoined))]
+    class Faction_Notify_PawnJoined_Patch //adds hit chance offset text to hover over lable
+    {
+        [HarmonyPostfix]
+        public static void Faction_Notify_PawnJoined_Postfix(Pawn p, Faction __instance)
+        {
+            if (!p.Spawned && __instance.def.defName == "DV_DracnyrCult")
+            {
+                p.genes.SetXenotype(LTS_Dracnyr_DefOf.DV_Dracnyr);
             }
         }
     }

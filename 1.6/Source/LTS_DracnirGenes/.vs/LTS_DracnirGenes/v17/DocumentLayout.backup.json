@@ -8,9 +8,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|LTS_DracnirGenes||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0C69CE78-4622-4623-AC1C-E8E95EB6D9FB}|LTS_DracnirGenes.csproj|c:\\program files (x86)\\steam\\steamapps\\common\\rimworld\\mods\\dracnyrxenotype\\1.6\\source\\lts_dracnirgenes\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,8 +28,7 @@
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\DracnyrXenotype\\1.6\\Source\\LTS_DracnirGenes\\LTS_DracnirGenes.csproj",
               "RelativeToolTip": "LTS_DracnirGenes.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-05-13T20:45:21.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-13T20:45:21.582Z"
             },
             {
               "$type": "Document",
@@ -42,7 +38,7 @@
               "RelativeDocumentMoniker": "Class1.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\DracnyrXenotype\\1.6\\Source\\LTS_DracnirGenes\\Class1.cs*",
               "RelativeToolTip": "Class1.cs*",
-              "ViewState": "AgIAANkAAAAAAAAAAAAiwL4BAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAYwPIBAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T20:09:49.494Z",
               "EditorCaption": ""
