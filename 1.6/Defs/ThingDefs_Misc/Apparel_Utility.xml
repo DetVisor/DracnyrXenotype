@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="ArmorMachineableBase" MayRequire="Ludeon.RimWorld.Royalty">
+    <defName>LTS_Apparel_CamoCloak</defName>
+    <label>camo cloak</label>
+    <description>an optical camouflage cloak. It makes the user stealthier and harder to target. The effect is ineffective up close.</description>
+    <possessionCount>1</possessionCount>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+	<thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+	<costList>
+      <ComponentSpacer>4</ComponentSpacer>
+      <Hyperweave>100</Hyperweave>
+      <Uranium>20</Uranium>
+    </costList>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <WorkToMake>16000</WorkToMake>
+      <Mass>2</Mass>
+      <EquipDelay>3</EquipDelay>
+    </statBases>
+	<equippedStatOffsets>
+	  <LTS_AccuracyAgainstMeOffset>-0.2</LTS_AccuracyAgainstMeOffset>
+	  <HuntingStealth>0.5</HuntingStealth>
+    </equippedStatOffsets>
+    <apparel>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</wornGraphicPath>
+      <bodyPartGroups>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </bodyPartGroups>
+      <canBeDesiredForIdeo>false</canBeDesiredForIdeo>
+      <canBeGeneratedToSatisfyWarmth>false</canBeGeneratedToSatisfyWarmth>
+      <canBeGeneratedToSatisfyToxicEnvironmentResistance>false</canBeGeneratedToSatisfyToxicEnvironmentResistance>
+      <shellRenderedBehindHead>true</shellRenderedBehindHead>
+      <layers>
+	    <li>LTS_FullCloak</li>
+      </layers>
+      <drawData>
+        <dataNorth>
+          <layer>100</layer>
+        </dataNorth>
+      </drawData>
+      <tags>
+
+      </tags>
+    </apparel>
+    <recipeMaker>
+      <displayPriority>236</displayPriority>
+    </recipeMaker>
+	
+	<modExtensions>
+      <li Class="LTS_DracnirGenes.DracnyrExtension">
+        <hasHoodGraphic>True</hasHoodGraphic>
+		<cloakWhenDrafted>True</cloakWhenDrafted>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <ThingDef>
+    <defName>LTS_Apparel_CamoCloak_hoodup</defName>
+	<thingClass>Apparel</thingClass>
+    <label>If you are seeing this, this is a bug</label>
+    <description>If you are seeing this, this is a bug</description>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<altitudeLayer>MoteOverhead</altitudeLayer>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak_hoodup</wornGraphicPath>
+	  <useWornGraphicMask>true</useWornGraphicMask>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+    </apparel>
+	<!--<modExtensions>
+      <li Class="LTS_Test.ApparelExtension">
+		<cloakWhenDrafted>True</cloakWhenDrafted>
+      </li>
+    </modExtensions>-->
+  </ThingDef>
+  
+  <ThingDef>
+    <defName>LTS_Apparel_CamoCloak_hooddown</defName>
+	<thingClass>Apparel</thingClass>
+    <label>If you are seeing this, this is a bug</label>
+    <description>If you are seeing this, this is a bug</description>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+	<altitudeLayer>MoteOverhead</altitudeLayer>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak_hooddown</wornGraphicPath>
+	  <useWornGraphicMask>true</useWornGraphicMask>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+    </apparel>
+  </ThingDef>
+  
+  <ApparelLayerDef>
+	<defName>LTS_FullCloak</defName>
+	<label>full cloak</label>
+	<drawOrder>502</drawOrder>
+  </ApparelLayerDef>
+
+  <!--<ThingDef ParentName="ApparelNoQualityBase">
+    <defName>LTS_Apparel_CamofieldBelt</defName>
+    <label>mirage belt</label>
+    <description>An optical camouflage device. It will project a refractive energy field that, while offering no physical defence, makes the user harder to target. The refraction is ineffective up close.</description>
+    <thingClass>Apparel</thingClass>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/ShieldBelt/ShieldBelt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Spacer</techLevel>
+    <statBases>
+      <Mass>3</Mass>
+      <WorkToMake>14000</WorkToMake>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
+    </statBases>
+	<equippedStatOffsets>
+	  <LTS_AccuracyAgainstMeOffset>-0.2</LTS_AccuracyAgainstMeOffset>
+	  <HuntingStealth>0.5</HuntingStealth>
+	</equippedStatOffsets>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Steel>50</Steel>
+      <Plasteel>20</Plasteel>
+    </costList>
+    <recipeMaker>
+      <unfinishedThingDef>UnfinishedBelt</unfinishedThingDef>
+      <researchPrerequisite>ShieldBelt</researchPrerequisite>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Machining</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <useIngredientsForColor>false</useIngredientsForColor>
+      <skillRequirements>
+        <Crafting>6</Crafting>
+      </skillRequirements>
+      <displayPriority>300</displayPriority>
+    </recipeMaker>
+    <thingCategories>
+      <li>ApparelUtility</li>
+    </thingCategories>
+    <apparel>
+      <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
+      <wearPerDay>0</wearPerDay>
+      <bodyPartGroups>
+        <li>Waist</li>
+      </bodyPartGroups>
+      <layers>
+        <li>Belt</li>
+      </layers>
+      <tags>
+        <li>BeltDefense</li>
+      </tags>
+      <developmentalStageFilter>Child, Adult</developmentalStageFilter>
+    </apparel>
+    <allowedArchonexusCount>1</allowedArchonexusCount>
+    <tradeTags>
+      <li>Armor</li>
+    </tradeTags>
+  </ThingDef>-->
+
+</Defs>

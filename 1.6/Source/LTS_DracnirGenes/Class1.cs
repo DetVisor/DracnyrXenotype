@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using VEF;
 using VEF.AnimalBehaviours;
+using VEF.Apparels;
 using VEF.Genes;
 using Verse;
 
@@ -262,6 +264,12 @@ namespace LTS_DracnirGenes
         }
     }
 
+    public class DracnyrExtension : DefModExtension
+    {
+        public bool hasHoodGraphic;
+        public bool cloakWhenDrafted;
+    }
+
     [HarmonyPatch(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PostResolve))]
     class DefGenerator_GenerateImpliedDefs_PostResolve_Patch
     {
@@ -486,7 +494,7 @@ namespace LTS_DracnirGenes
     }
 
     [HarmonyPatch(typeof(Faction), nameof(Faction.Notify_PawnJoined))]
-    class Faction_Notify_PawnJoined_Patch //adds hit chance offset text to hover over lable
+    class Faction_Notify_PawnJoined_Patch //changes pawns that join the Dracnyr off-screen into Dracnyr
     {
         [HarmonyPostfix]
         public static void Faction_Notify_PawnJoined_Postfix(Pawn p, Faction __instance)
@@ -495,6 +503,77 @@ namespace LTS_DracnirGenes
             {
                 p.genes.SetXenotype(LTS_Dracnyr_DefOf.DV_Dracnyr);
             }
+        }
+    }
+
+    [HarmonyPatch(typeof(DynamicPawnRenderNodeSetup_Apparel), "ProcessApparel")]
+    public static class VanillaExpandedFramework_DynamicPawnRenderNodeSetup_Apparel_ProcessApparel_Patch
+    {
+        public delegate IEnumerable<ValueTuple<PawnRenderNode, PawnRenderNode>> ProcessApparel(Pawn pawn, PawnRenderTree tree, Apparel ap, PawnRenderNode headApparelNode, PawnRenderNode bodyApparelNode, Dictionary<PawnRenderNode, int> layerOffsets);
+        public static readonly ProcessApparel processApparel = AccessTools.MethodDelegate<ProcessApparel>(AccessTools.Method(typeof(DynamicPawnRenderNodeSetup_Apparel), "ProcessApparel"));
+
+        public static IEnumerable<ValueTuple<PawnRenderNode, PawnRenderNode>> Postfix(IEnumerable<ValueTuple<PawnRenderNode, PawnRenderNode>> result, Pawn pawn, PawnRenderTree tree, Apparel ap, PawnRenderNode headApparelNode, PawnRenderNode bodyApparelNode, Dictionary<PawnRenderNode, int> layerOffsets)
+        {
+            var extension = ap.def.GetModExtension<DracnyrExtension>();
+            if (extension?.hasHoodGraphic == true)
+            {
+                Apparel hoodItem = null;
+                if (PawnRenderUtility.CarryWeaponOpenly(pawn))
+                    hoodItem = ThingMaker.MakeThing(ThingDef.Named(ap.def.defName + "_hoodup")) as Apparel;
+                else
+                    hoodItem = ThingMaker.MakeThing(ThingDef.Named(ap.def.defName + "_hooddown")) as Apparel;
+
+                if (ApparelGraphicRecordGetter.TryGetGraphicApparel(hoodItem, pawn.story.bodyType, false, out _))
+                    result = result.Concat(processApparel(pawn, tree, hoodItem, headApparelNode, bodyApparelNode, layerOffsets));
+            }
+
+            return result;
+        }
+    }
+
+    [HotSwappable]
+    [HarmonyPatch(typeof(ApparelGraphicRecordGetter), "TryGetGraphicApparel")]
+    public static class ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch
+    {
+        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            List<CodeInstruction> lines = new List<CodeInstruction>(instructions);
+
+            for (int currentLineNumber = 0; currentLineNumber < lines.Count; currentLineNumber++)
+            {
+                yield return lines[currentLineNumber];
+
+                if (lines[currentLineNumber].opcode == OpCodes.Ldloc_1)//shader
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0);//the apparel
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch), "TryGetShader"));
+                }
+            }
+        }
+        public static Shader TryGetShader(Shader shader, Apparel apparel)
+        {
+            Pawn wearer = apparel.Wearer;
+            if (wearer != null)
+            {
+                DracnyrExtension modExtension = apparel.def.GetModExtension<DracnyrExtension>();
+
+                if (modExtension?.cloakWhenDrafted == true && PawnRenderUtility.CarryWeaponOpenly(wearer))
+                {
+                    return ShaderDatabase.Invisible;
+                }
+            }
+            else
+            {
+                if (apparel.def.defName.Contains("_hoodup"))
+                {
+                    return ShaderDatabase.Invisible;
+                }
+            }
+
+
+
+
+            return shader;
         }
     }
 
