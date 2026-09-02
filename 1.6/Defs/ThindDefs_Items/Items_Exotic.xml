@@ -5,10 +5,11 @@
     <thingClass>ThingWithComps</thingClass>
     <defName>LTS_DracnyrEndogerm</defName>
     <label>dracnyr endogerm</label>
-    <description>.</description>
+    <description>a self-contained biological organ capable of overwriting the targets' endogenes with those of the dracnyr xenotype.\n\nwhile more advances and therefore less severe than a regular xenogerm, this endogerm will still incapacitate its user during the 24 hour transformation process.</description>
     <graphicData>
-      <texPath>Things/Item/Special/MechSerumHealer</texPath>
+      <texPath>Things/Item/Special/DracnyrEndogerm</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>0.9</drawSize>
     </graphicData>
     <stackLimit>10</stackLimit>
     <statBases>
