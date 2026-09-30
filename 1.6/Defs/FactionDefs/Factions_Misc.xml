@@ -4,43 +4,59 @@
   <FactionDef ParentName="FactionBase">
     <defName>DV_DracnyrCult</defName>
     <label>dracnyr cult</label>
-    <description>A tight-knit union of brutish, naturally armored keshig warriors. Although weary of outsiders, they are neutral to diplomatic contact, even allowing trade. They invade others with their skilled warriors without discretion, whether to pillage and steal or to assert their power.\n\nSpawned as a temporary invasion force under the control of a powerful empire, the rogue keshig now thrive on conquest, while still holding their beliefs of honor and loyalty.</description>
+    <description>Evil space elves! (Placeholder)</description>
+	<pawnSingular>cultist</pawnSingular>
+    <pawnsPlural>cultists</pawnsPlural>
+    <leaderTitle>cultlord</leaderTitle>
+	<!--<factionNameMaker>DV_NamerFactionDracnyrCult</factionNameMaker>-->
+	<fixedName>Dracnyr cult</fixedName>
+    <canGenerateQuestSites>false</canGenerateQuestSites>
     <factionIconPath>World/WorldObjects/Expanding/DracnyrBase</factionIconPath>
-    <factionNameMaker>DV_NamerFactionPirateKeshig</factionNameMaker>
-    <settlementNameMaker>DV_NamerSettlementPirateKeshig</settlementNameMaker>
+	<canStageAttacks>true</canStageAttacks>
+	<arrivalLayerWhitelist>
+      <li>Surface</li>
+    </arrivalLayerWhitelist>
+	<colorSpectrum Inherit="False">
+      <li>(88, 67, 136)</li>
+    </colorSpectrum>
+	<raidCommonalityFromPointsCurve>
+      <points>
+        <li>(300, 0)</li>
+        <li>(5000, 0.5)</li>
+      </points>
+    </raidCommonalityFromPointsCurve>
+	<raidLootMaker>LTS_DracnyrRaidLootMaker</raidLootMaker>
+	<raidLootValueFromPointsCurve>
+      <points>
+        <li>(300, 1300)</li>
+        <li>(5000, 2600)</li>
+      </points>
+    </raidLootValueFromPointsCurve>
+	<permanentEnemy>true</permanentEnemy>
+	<hostileToFactionlessHumanlikes>true</hostileToFactionlessHumanlikes>
+	<techLevel>Ultra</techLevel>
+	<hidden>true</hidden>
+	<permanentEnemy>true</permanentEnemy>
+	<requiredCountAtGameStart>1</requiredCountAtGameStart>
     <maxConfigurableAtWorldCreation>1</maxConfigurableAtWorldCreation>
-    <settlementGenerationWeight>1</settlementGenerationWeight>
-    <requiredCountAtGameStart>1</requiredCountAtGameStart>
-    <pawnSingular>dracnyr cultist</pawnSingular>
-    <pawnsPlural>dracnyr cultists</pawnsPlural>
-    <leaderTitle>dracnyr cultlord</leaderTitle>
     <fixedLeaderKinds>
-      <li>DV_Khan_Keshig</li>
+      <li>DV_Moonlord_Dracnyr</li>
     </fixedLeaderKinds>
-    <permanentEnemy>true</permanentEnemy>
-    <permanentEnemyToEveryoneExceptPlayer>false</permanentEnemyToEveryoneExceptPlayer>
     <xenotypeSet Inherit="False">
       <xenotypeChances>
-        <DV_Dracnyr>999</DV_Dracnyr>
+        <DV_Dracnyr>1</DV_Dracnyr>
       </xenotypeChances>
     </xenotypeSet>
-    <layerWhitelist MayRequire="Ludeon.RimWorld.Odyssey">
-      <li>Orbit</li>
-    </layerWhitelist>
-    <dialogFactionGreetingHostile>KeshigFactionGreetingHostile</dialogFactionGreetingHostile>
-    <dialogFactionGreetingHostileAppreciative>KeshigFactionGreetingHostileAppreciative</dialogFactionGreetingHostileAppreciative>
-    <dialogFactionGreetingWary>KeshigFactionGreetingWary</dialogFactionGreetingWary>
-    <dialogFactionGreetingWarm>KeshigFactionGreetingWarm</dialogFactionGreetingWarm>
-    <dialogMilitaryAidSent>KeshigMilitaryAidSent</dialogMilitaryAidSent>
     <colorSpectrum Inherit="False">
       <li>(88, 67, 136)</li>
     </colorSpectrum>
+	
+	
     <arrivalModeWhitelist>
-      <li>EdgeDrop</li>
-      <li>EdgeDropGroups</li>
-      <li>CenterDrop</li>
-      <li>RandomDrop</li>
+      <li>LTS_DracnyrEclipseRaid</li>
     </arrivalModeWhitelist>
+	
+	
     <backstoryFilters>
       <li>
         <categories>
@@ -55,9 +71,16 @@
         <commonality>0.1</commonality>
       </li>
     </backstoryFilters>
-    <caravanTraderKinds />
-    <visitorTraderKinds />
-
+	<apparelStuffFilter>
+      <thingDefs>
+	    <li>Leather_Human</li>
+        <!--<li>Synthread</li>
+        <li>Hyperweave</li>-->
+        <!--<li>Plasteel</li>-->
+      </thingDefs>
+    </apparelStuffFilter>
+	
+	<!--<allowedCultures><li>Kriminul</li></allowedCultures-->
     <fixedIdeo>true</fixedIdeo>
     <ideoName>Flock of the Progenitor</ideoName>
     <ideoDescription>Kahlom: Bringer of war, our god forged of tempered steel, brought us to battle and lead us to the conquest of Princeps. But, once accomplished our creators sought to destroy us, to reap our harvest. And so we ran, and Mivlak was born of the peace that came from our escape. The gods now dance in a beautiful waltz throughout, and our shamans communicate with them, for advice, and blessings. We raid, and destroy others to claim our homes. Without a claim, we are nothing.</ideoDescription>
@@ -104,12 +127,6 @@
 
       <li MayRequire="Ludeon.RimWorld.Ideology">Scarification_Heavy</li>
     </disallowedPrecepts>
-    <apparelStuffFilter>
-      <stuffCategoriesToAllow>
-        <li>Metallic</li>
-        <li>Fabric</li>
-      </stuffCategoriesToAllow>
-    </apparelStuffFilter>
     <maxPawnCostPerTotalPointsCurve>
       <points>
         <li>(500, 100)</li>
@@ -124,12 +141,10 @@
         <kindDef>Combat</kindDef>
         <commonality>100</commonality>
         <options>
-          <DV_Nokud_Keshig>14</DV_Nokud_Keshig>
-          <DV_Ravager_Keshig>10</DV_Ravager_Keshig>
-          <DV_Boyan_Keshig>4</DV_Boyan_Keshig>
-          <DV_Bahadur_Keshig>3</DV_Bahadur_Keshig>
-          <DV_Assassin_Keshig MayRequire="Ludeon.Rimworld.Royalty">3</DV_Assassin_Keshig>
-          <Warg>10</Warg>
+          <DV_Shadeling_Dracnyr>10</DV_Shadeling_Dracnyr>
+          <DV_Swordsman_Dracnyr>5</DV_Swordsman_Dracnyr>
+          <DV_Marskman_Dracnyr>5</DV_Marskman_Dracnyr>
+          <DV_Moonlord_Dracnyr>1</DV_Moonlord_Dracnyr>
         </options>
       </li>
       <li>
@@ -137,24 +152,12 @@
         <kindDef>Combat</kindDef>
         <commonality>30</commonality>
         <options>
-          <DV_Bahadur_Keshig>12</DV_Bahadur_Keshig>
-          <DV_Assassin_Keshig MayRequire="Ludeon.Rimworld.Royalty">8</DV_Assassin_Keshig>
-          <DV_Shade_Keshig>5</DV_Shade_Keshig>
-          <Warg>5</Warg>
+          <DV_Swordsman_Dracnyr>5</DV_Swordsman_Dracnyr>
+          <DV_Marskman_Dracnyr>5</DV_Marskman_Dracnyr>
+          <DV_Moonlord_Dracnyr>1</DV_Moonlord_Dracnyr>
         </options>
       </li>
-      <li>
-        <!-- Normal fights, berserkers only (very rare) -->
-        <kindDef>Combat</kindDef>
-        <commonality>2.5</commonality>
-        <maxTotalPoints>1000</maxTotalPoints>
-        <options>
-          <DV_Nokud_Keshig>12</DV_Nokud_Keshig>
-          <Warg>6</Warg>
-        </options>
-      </li>
-      <li>
-        <!-- Base defense, mainly ranged with melee mix-ins -->
+      <!--<li>
         <kindDef>Settlement</kindDef>
         <options>
           <DV_Boyan_Keshig>6</DV_Boyan_Keshig>
@@ -193,8 +196,23 @@
         <options>
           <Farmer>1</Farmer>
         </options>
-      </li>
+      </li>-->
     </pawnGroupMakers>
   </FactionDef>
+
+  <ThingSetMakerDef>
+    <defName>LTS_DracnyrRaidLootMaker</defName>
+    <root Class="ThingSetMaker_MarketValue">
+      <fixedParams>
+        <filter>
+          <thingDefs>
+            <!--<li>LTS_DracnyrEndogerm</li>-->
+			<li>Gold</li>
+			<li>MedicineUltratech</li>
+          </thingDefs>
+        </filter>
+      </fixedParams>
+    </root>
+  </ThingSetMakerDef>
 
 </Defs>

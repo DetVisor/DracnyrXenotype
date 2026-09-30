@@ -211,7 +211,7 @@ namespace LTS_DracnirGenes
         public override void Arrive(List<Pawn> pawns, IncidentParms parms)
         {
             base.Arrive(pawns, parms);
-            parms.target.GameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(duration: Mathf.RoundToInt(0.75f * 60000f), def: GameConditionDef.Named("LTS_DracnyrEclipse")));//should create a 9 hour LTS_DracnyrEclipse
+            parms.target.GameConditionManager.RegisterCondition(GameConditionMaker.MakeCondition(duration: Mathf.RoundToInt(9f * GenDate.TicksPerHour), def: LTS_Dracnyr_DefOf.LTS_DracnyrEclipse));//should create a 9 hour LTS_DracnyrEclipse
         }
     }
 
@@ -257,6 +257,7 @@ namespace LTS_DracnirGenes
     public static class LTS_Dracnyr_DefOf
     {
         public static XenotypeDef DV_Dracnyr;
+        public static GameConditionDef LTS_DracnyrEclipse;
 
         static LTS_Dracnyr_DefOf()
         {

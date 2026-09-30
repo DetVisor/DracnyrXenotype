@@ -11,10 +11,10 @@
     </selectionWeightPerPointsCurve>
     <selectionWeightCurvesPerFaction>
       <li>
-        <faction>DV_PirateKeshig</faction>
+        <faction>DV_DracnyrCult</faction>
         <selectionWeightPerPointsCurve>
           <points>
-			<li>(0, 999999)</li>
+			<li>(0, 1)</li>
           </points>
         </selectionWeightPerPointsCurve>
       </li>
@@ -28,9 +28,9 @@
       <li>LTS_DracnyrEclipseRaid</li>
     </arriveModes>
     <letterLabelEnemy>Raid</letterLabelEnemy>
-    <arrivalTextEnemy>They are attacking immediately.\n\nAdditionally, an unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.</arrivalTextEnemy>
+    <arrivalTextEnemy>They are attacking immediately.\n\nAdditionally, a cloaked weather control satellite has caused a cloud of blackness to spread across the sky like an ink blot in a glass of water.</arrivalTextEnemy>
     <letterLabelFriendly>Friendlies</letterLabelFriendly>
-    <arrivalTextFriendly>They are moving in to help you immediately.\n\nAdditionally a device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water.</arrivalTextFriendly>
+    <arrivalTextFriendly>They are moving in to help you immediately.\n\nAdditionally a cloaked weather control satellite has caused a cloud of blackness to spread across the sky like an ink blot in a glass of water.</arrivalTextFriendly>
   </RaidStrategyDef>
 
   <PawnsArrivalModeDef>
@@ -43,20 +43,22 @@
     </selectionWeightCurve>
 	<textEnemy>The {0} from {1} have arrived under the cover of darkness.</textEnemy>
     <textWillArrive>{0_pawnsPluralDef} will arrive under the cover of darkness.</textWillArrive>
-    <layerBlacklist>
+    <!--<layerBlacklist>
 	  <li MayRequire="ludeon.rimworld.odyssey">Orbit</li>
-	</layerBlacklist>
+	</layerBlacklist>-->
+	<walkIn>true</walkIn>
   </PawnsArrivalModeDef>
   
   <GameConditionDef>
     <defName>LTS_DracnyrEclipse</defName>
     <conditionClass>GameCondition_NoSunlight</conditionClass>
     <label>Illyavrith's shadow</label>
-	<description>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water. It will be dark, even during the daytime.</description>
-    <endMessage>The darkness is dissipating.</endMessage>
+	<!--<description>An unidentified device has detonated in the sky, spreading a cloud of darkness like an ink blot in a glass of water. It will be dark, even during the daytime.</description>-->
+    <description>A cloaked weather control satellite has caused a cloud of blackness to spread across the sky like an ink blot in a glass of water. It will be dark, even during the daytime.</description>
+	<endMessage>The darkness is dissipating.</endMessage>
     <canBePermanent>false</canBePermanent>
     <allowUnderground>false</allowUnderground>
-    <canAffectAllPlanetLayers>true</canAffectAllPlanetLayers>
+    <canAffectAllPlanetLayers>false</canAffectAllPlanetLayers>
 	<natural>false</natural>
   </GameConditionDef>
   

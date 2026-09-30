@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Yttakin -->
+
+  <RulePackDef>
+    <defName>DV_NamerFactionDracnyrCult</defName>
+    <include>
+      <!--<li>DV_KeshigUtility</li>-->
+    </include>
+    <rulePack>
+      <rulesStrings>
+        <li>r_name(p=1)->dracnyr cult</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

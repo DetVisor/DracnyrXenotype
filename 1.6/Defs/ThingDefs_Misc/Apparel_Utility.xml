@@ -3,8 +3,8 @@
 
   <ThingDef ParentName="ArmorMachineableBase" MayRequire="Ludeon.RimWorld.Royalty">
     <defName>LTS_Apparel_CamoCloak</defName>
-    <label>camo cloak</label>
-    <description>an optical camouflage cloak. It makes the user stealthier and harder to target. The effect is ineffective up close.</description>
+    <label>opticamo cloak</label>
+    <description>an optical camouflage cloak. It makes the user stealthier and harder to shoot. The illusion is only effective at range.</description>
     <possessionCount>1</possessionCount>
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>

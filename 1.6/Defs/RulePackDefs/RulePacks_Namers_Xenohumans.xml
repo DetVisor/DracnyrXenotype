@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<RulePackDef>
+    <defName>NamerPersonDracnyr</defName>
+    <rulePack>
+      <include>
+        <li>NamerFirstnamesDracnyr</li>
+        <li>NamerLastNamesDracnyr</li>
+      </include>
+      <rulesStrings>
+        <li>r_name->[firstName] [lastName]</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  
+  <RulePackDef>
+    <defName>NamerFirstnamesDracnyr</defName>
+    <rulePack>
+        <rulesStrings>
+            <li>firstName(p=1)-> [firstName]</li>
+         
+            <li>firstName->john</li>
+			<li>firstName->jane</li>
+        </rulesStrings>
+    </rulePack>
+</RulePackDef>
+
+<RulePackDef>
+  <defName>NamerLastNamesDracnyr</defName>
+  <rulePack>
+      <rulesStrings>
+          <li>lastName(p=1)->[lastNamePrefix]'[lastName]'[lastNameSuffix]</li>
+         
+            <li>lastNamePrefix->plac</li>
+            <li>lastName->ehol</li>
+            <li>lastNameSuffix->der</li>
+
+      </rulesStrings>
+  </rulePack>
+</RulePackDef>
+
+</Defs>
