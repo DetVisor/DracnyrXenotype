@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Mono.Cecil.Cil;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -268,6 +269,7 @@ namespace LTS_DracnirGenes
     public class DracnyrExtension : DefModExtension
     {
         public bool hasHoodGraphic;
+        public bool hasDraftedGraphic;
         public bool cloakWhenDrafted;
     }
 
@@ -520,9 +522,9 @@ namespace LTS_DracnirGenes
             {
                 Apparel hoodItem = null;
                 if (PawnRenderUtility.CarryWeaponOpenly(pawn))
-                    hoodItem = ThingMaker.MakeThing(ThingDef.Named(ap.def.defName + "_hoodup")) as Apparel;
+                    hoodItem = ThingMaker.MakeThing(ThingDef.Named(ap.def.defName + "Hood_Drafted")) as Apparel;
                 else
-                    hoodItem = ThingMaker.MakeThing(ThingDef.Named(ap.def.defName + "_hooddown")) as Apparel;
+                    hoodItem = ThingMaker.MakeThing(ThingDef.Named(ap.def.defName + "Hood")) as Apparel;
 
                 if (ApparelGraphicRecordGetter.TryGetGraphicApparel(hoodItem, pawn.story.bodyType, false, out _))
                     result = result.Concat(processApparel(pawn, tree, hoodItem, headApparelNode, bodyApparelNode, layerOffsets));
@@ -549,6 +551,11 @@ namespace LTS_DracnirGenes
                     yield return new CodeInstruction(OpCodes.Ldarg_0);//the apparel
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch), "TryGetShader"));
                 }
+                if (lines[currentLineNumber].opcode == OpCodes.Ldloc_0)
+                {
+                    yield return new CodeInstruction(OpCodes.Ldarg_0, null);
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(ApparelGraphicRecordGetter_TryGetGraphicApparel_Patch), "TryGetPath", null, null));
+                }
             }
         }
         public static Shader TryGetShader(Shader shader, Apparel apparel)
@@ -565,16 +572,27 @@ namespace LTS_DracnirGenes
             }
             else
             {
-                if (apparel.def.defName.Contains("_hoodup"))
+                if (apparel.def.defName.Contains("_Drafted"))
                 {
                     return ShaderDatabase.Invisible;
                 }
             }
-
-
-
-
             return shader;
+        }
+        public static string TryGetPath(string path, Apparel apparel)
+        {
+            Pawn wearer = apparel.Wearer;
+            if (wearer != null)
+            {
+                DracnyrExtension modExtension = apparel.def.GetModExtension<DracnyrExtension>();
+
+                if (modExtension?.hasDraftedGraphic == true && PawnRenderUtility.CarryWeaponOpenly(wearer))
+                {
+                    return path.Insert(path.IndexOf("_"), "_Drafted");//CamoCloak_Drafted_Male
+                    //return path + "_Drafted";//CamoCloak_Male_Drafted
+                }
+            }
+            return path;
         }
     }
 

@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="ArmorMachineableBase" MayRequire="Ludeon.RimWorld.Royalty">
+  <ThingDef ParentName="ApparelNoQualityBase">
     <defName>LTS_Apparel_CamoCloak</defName>
     <label>opticamo cloak</label>
     <description>an optical camouflage cloak. It makes the user stealthier and harder to shoot. The illusion is only effective at range.</description>
-    <possessionCount>1</possessionCount>
+    <!--<possessionCount>1</possessionCount>-->
+	<techLevel>Ultra</techLevel>
+	<recipeMaker IsNull="True" />
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+	  <shaderType>CutoutComplex</shaderType>
       <drawSize>1.1</drawSize>
     </graphicData>
 	<thingCategories>
       <li>ApparelUtility</li>
     </thingCategories>
+	<tradeTags>
+	  <li>HiTechArmor</li>
+	</tradeTags>
 	<costList>
       <ComponentSpacer>4</ComponentSpacer>
       <Hyperweave>100</Hyperweave>
       <Uranium>20</Uranium>
     </costList>
+	<smeltable>false</smeltable>
     <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
-      <WorkToMake>16000</WorkToMake>
-      <Mass>2</Mass>
-      <EquipDelay>3</EquipDelay>
+      <Mass>3</Mass>
+      <Flammability>0.4</Flammability>
+      <EquipDelay>2</EquipDelay>
     </statBases>
 	<equippedStatOffsets>
 	  <LTS_AccuracyAgainstMeOffset>-0.2</LTS_AccuracyAgainstMeOffset>
 	  <HuntingStealth>0.5</HuntingStealth>
     </equippedStatOffsets>
     <apparel>
+	  <countsAsClothingForNudity>false</countsAsClothingForNudity>
+      <careIfWornByCorpse>false</careIfWornByCorpse>
+      <careIfDamaged>false</careIfDamaged>
       <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</wornGraphicPath>
+	  <useWornGraphicMask>true</useWornGraphicMask>
       <bodyPartGroups>
-        <li>Torso</li>
-        <li>Neck</li>
+        <li>UpperHead</li>
+		<li>FullHead</li>
+		<li>Neck</li>
+		<li>Torso</li>
         <li>Shoulders</li>
         <li>Arms</li>
         <li>Legs</li>
@@ -51,63 +63,109 @@
         </dataNorth>
       </drawData>
       <tags>
-
+		<li>DracnyrSpacerMilitary</li>
       </tags>
     </apparel>
-    <recipeMaker>
-      <displayPriority>236</displayPriority>
-    </recipeMaker>
-	
+	<allowedArchonexusCount>1</allowedArchonexusCount>
+	<generateAllowChance>0</generateAllowChance>
 	<modExtensions>
       <li Class="LTS_DracnirGenes.DracnyrExtension">
         <hasHoodGraphic>True</hasHoodGraphic>
+		<hasDraftedGraphic>True</hasDraftedGraphic>
 		<cloakWhenDrafted>True</cloakWhenDrafted>
       </li>
     </modExtensions>
+	<comps>
+		<li Class="CompProperties_Biocodable"/>
+	</comps>
+	<colorGenerator Class="ColorGenerator_Options">
+	  <options>
+		<li>
+		  <weight>10</weight>
+		  <only>(0.9,0.9,0.9)</only>
+		</li>
+		<li>
+		  <weight>10</weight>
+		  <only>(0.33,0.33,0.33)</only>
+		</li>
+		<li>
+		  <weight>10</weight>
+		  <only>(0.65,0.65,0.65)</only>
+		</li>
+		<li>
+		  <weight>6</weight>
+		  <min>(0.3,0.3,0.3)</min>
+		  <max>(0.5,0.5,0.5)</max>
+		</li>
+	  </options>
+	</colorGenerator>
+	<thingSetMakerTags>
+	  <li>RewardStandardHighFreq</li>
+	</thingSetMakerTags>
   </ThingDef>
   
   <ThingDef>
-    <defName>LTS_Apparel_CamoCloak_hoodup</defName>
+    <defName>LTS_Apparel_CamoCloak_Drafted</defName>
 	<thingClass>Apparel</thingClass>
     <label>If you are seeing this, this is a bug</label>
     <description>If you are seeing this, this is a bug</description>
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>1.1</drawSize>
     </graphicData>
 	<altitudeLayer>MoteOverhead</altitudeLayer>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak_hoodup</wornGraphicPath>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak_Drafted</wornGraphicPath>
 	  <useWornGraphicMask>true</useWornGraphicMask>
       <layers>
         <li>EyeCover</li>
       </layers>
     </apparel>
-	<!--<modExtensions>
-      <li Class="LTS_Test.ApparelExtension">
-		<cloakWhenDrafted>True</cloakWhenDrafted>
-      </li>
-    </modExtensions>-->
   </ThingDef>
   
   <ThingDef>
-    <defName>LTS_Apparel_CamoCloak_hooddown</defName>
+    <defName>LTS_Apparel_CamoCloakHood</defName>
 	<thingClass>Apparel</thingClass>
     <label>If you are seeing this, this is a bug</label>
     <description>If you are seeing this, this is a bug</description>
     <graphicData>
       <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>
       <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>1.1</drawSize>
     </graphicData>
 	<altitudeLayer>MoteOverhead</altitudeLayer>
     <apparel>
       <bodyPartGroups>
         <li>FullHead</li>
       </bodyPartGroups>
-      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak_hooddown</wornGraphicPath>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloakHood</wornGraphicPath>
+	  <useWornGraphicMask>true</useWornGraphicMask>
+      <layers>
+        <li>EyeCover</li>
+      </layers>
+    </apparel>
+  </ThingDef>
+  
+  <ThingDef>
+    <defName>LTS_Apparel_CamoCloakHood_Drafted</defName>
+	<thingClass>Apparel</thingClass>
+    <label>If you are seeing this, this is a bug</label>
+    <description>If you are seeing this, this is a bug</description>
+    <graphicData>
+      <texPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>1.1</drawSize>
+    </graphicData>
+	<altitudeLayer>MoteOverhead</altitudeLayer>
+    <apparel>
+      <bodyPartGroups>
+        <li>FullHead</li>
+      </bodyPartGroups>
+      <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloakHood_Drafted</wornGraphicPath>
 	  <useWornGraphicMask>true</useWornGraphicMask>
       <layers>
         <li>EyeCover</li>
