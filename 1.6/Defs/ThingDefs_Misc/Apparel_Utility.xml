@@ -61,13 +61,13 @@
       </layers>
       <drawData>
         <dataNorth>
-          <layer>100</layer>
+          <layer>91</layer>
         </dataNorth>
         <dataEast>
-          <layer>100</layer>
+          <layer>91</layer>
         </dataEast>
 		<dataWest>
-          <layer>100</layer>
+          <layer>91</layer>
         </dataWest>
       </drawData>
       <tags>
@@ -157,7 +157,7 @@
       </layers>
 	  <drawData>
         <dataNorth>
-          <layer>99</layer>
+          <layer>90</layer>
         </dataNorth>
       </drawData>
     </apparel>
@@ -185,7 +185,7 @@
       </layers>
 	  <drawData>
         <dataNorth>
-          <layer>99</layer>
+          <layer>90</layer>
         </dataNorth>
       </drawData>
     </apparel>
