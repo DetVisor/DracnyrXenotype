@@ -61,6 +61,12 @@
         <dataNorth>
           <layer>100</layer>
         </dataNorth>
+        <dataEast>
+          <layer>100</layer>
+        </dataEast>
+		<dataWest>
+          <layer>100</layer>
+        </dataWest>
       </drawData>
       <tags>
 		<li>DracnyrSpacerMilitary</li>
@@ -100,7 +106,7 @@
 	  </options>
 	</colorGenerator>
 	<thingSetMakerTags>
-	  <li>RewardStandardHighFreq</li>
+	  <li>RewardStandard</li>
 	</thingSetMakerTags>
   </ThingDef>
   
