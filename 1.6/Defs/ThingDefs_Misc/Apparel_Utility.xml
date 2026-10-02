@@ -29,6 +29,8 @@
     <statBases>
       <Mass>3</Mass>
       <Flammability>0.4</Flammability>
+	  <Insulation_Cold>10</Insulation_Cold>
+      <Insulation_Heat>6</Insulation_Heat>
       <EquipDelay>2</EquipDelay>
     </statBases>
 	<equippedStatOffsets>
@@ -42,8 +44,8 @@
       <wornGraphicPath>Things/Pawn/Humanlike/Apparel/CamoCloak/CamoCloak</wornGraphicPath>
 	  <useWornGraphicMask>true</useWornGraphicMask>
       <bodyPartGroups>
-        <li>UpperHead</li>
-		<li>FullHead</li>
+        <!--<li>UpperHead</li>
+		<li>FullHead</li>-->
 		<li>Neck</li>
 		<li>Torso</li>
         <li>Shoulders</li>
@@ -153,6 +155,11 @@
       <layers>
         <li>EyeCover</li>
       </layers>
+	  <drawData>
+        <dataNorth>
+          <layer>99</layer>
+        </dataNorth>
+      </drawData>
     </apparel>
   </ThingDef>
   
@@ -176,6 +183,11 @@
       <layers>
         <li>EyeCover</li>
       </layers>
+	  <drawData>
+        <dataNorth>
+          <layer>99</layer>
+        </dataNorth>
+      </drawData>
     </apparel>
   </ThingDef>
   

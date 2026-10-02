@@ -596,6 +596,21 @@ namespace LTS_DracnirGenes
         }
     }
 
+    [HarmonyPatch(typeof(Pawn_DraftController), "Drafted", MethodType.Setter)]
+    public static class Pawn_DraftController_Drafted_Patch //considering both dubs apparel and VE Medieval 2 do something like this too, maybe this should be disabled when either of them are active?
+    {
+        public static void Postfix(Pawn_DraftController __instance)
+        {
+            if (__instance.pawn != null && __instance.pawn.RaceProps.Humanlike)
+            {
+                LongEventHandler.ExecuteWhenFinished(delegate
+                {
+                    __instance.pawn.Drawer.renderer.SetAllGraphicsDirty();
+                });
+            }
+        }
+    }
+
     [StaticConstructorOnStartup]
     public static class StaticCollections
     {
