@@ -86,5 +86,91 @@
       </li>
     </tools>
   </ThingDef>
+  
+  <ThingDef ParentName="BaseBullet">
+    <defName>LTS_ToxLancerProjectile</defName>
+    <label>tox lance shot</label>
+    <graphicData>
+      <texPath>Things/Projectiles/ToxSpiker_Flechette</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>BulletToxic</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <stoppingPower>0.2</stoppingPower>
+      <!--<armorPenetrationBase>0.35</armorPenetrationBase>-->
+      <speed>120</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseGunWithQuality">
+    <defName>LTS_Gun_ToxLancer</defName>
+    <label>toxlancer</label>
+    <description>A powerful single-shot coilgun. Magnetically charged coils accelerate a metallic sabot to high speeds, turning it into a deadly and accurate long-range projectile that pierces through armor and flesh.</description>
+    <techLevel>Spacer</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/ToxLancer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.1</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <MarketValue>500</MarketValue>
+      <WorkToMake>22000</WorkToMake>
+      <Mass>8</Mass>
+      <AccuracyTouch>0.65</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.75</AccuracyLong>
+      <RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
+    </statBases>
+    <weaponTags>
+      <li>DracnyrRangedSniper</li>
+    </weaponTags>
+    <generateCommonality>0.1</generateCommonality>
+    <recipeMaker IsNull="True" />
+    <costList>
+      <Plasteel>80</Plasteel>
+      <ComponentSpacer>3</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <weaponClasses>
+      <li>Ranged</li>
+    </weaponClasses>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>LTS_ToxLancerProjectile</defaultProjectile>
+        <warmupTime>1.5</warmupTime>
+        <range>42.9</range>
+        <ticksBetweenBurstShots>18</ticksBetweenBurstShots>
+        <burstShotCount>1</burstShotCount>
+        <soundCast>Shot_ToxicNeedleGun</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>2</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
 
 </Defs>

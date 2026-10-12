@@ -175,9 +175,18 @@
     </apparelRequired>
     <weaponMoney>1000~1500</weaponMoney>
     <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <maxGenerationAge>400</maxGenerationAge>
+	<disallowedTraits>
+      <li>Wimp</li>
+    </disallowedTraits>
+	<skills>
+	  <li>
+        <skill>Melee</skill>
+        <range>8~16</range>
+      </li>
+    </skills>
     <defaultFactionType>DV_DracnyrCult</defaultFactionType>
     <weaponTags Inherit="False">
-      <li>DracnyrRanged</li>
       <li>DracnyrMeleeHeavy</li>
     </weaponTags>
     <specificApparelRequirements>
@@ -199,12 +208,74 @@
         <bodyPartGroup>Legs</bodyPartGroup>
         <apparelLayer>OnSkin</apparelLayer>
       </li>
+	  <li>
+        <bodyPartGroup>Waist</bodyPartGroup>
+        <apparelLayer>Belt</apparelLayer>
+        <color>(70, 70, 70)</color>
+      </li>
     </specificApparelRequirements>
 	<inventoryOptions>
       <skipChance>0</skipChance>
       <thingDef>LTS_DracnyrEndogerm</thingDef>
       <countRange>1</countRange>
     </inventoryOptions>
+  </PawnKindDef>
+  
+  <PawnKindDef ParentName="DV_DracnyrBase">
+    <defName>LTS_Huntress_Dracnyr</defName>
+    <labelMale>hunter</labelMale>
+	<labelFemale>huntress</labelFemale>
+	<itemQuality Inherit="False">Excellent</itemQuality>
+    <combatPower>170</combatPower>
+    <apparelMoney>9000</apparelMoney>
+    <apparelRequired Inherit="False">
+      <li>DV_Apparel_ShadowHelmet</li>
+      <li>DV_Apparel_ShadowArmor</li>
+      <li>LTS_Apparel_CamoCloak</li>
+    </apparelRequired>
+    <weaponMoney>1000~1500</weaponMoney>
+    <apparelAllowHeadgearChance>0</apparelAllowHeadgearChance>
+    <maxGenerationAge>400</maxGenerationAge>
+	<skills>
+      <li>
+        <skill>Shooting</skill>
+        <range>8~16</range>
+      </li>
+    </skills>
+    <defaultFactionType>DV_DracnyrCult</defaultFactionType>
+    <weaponTags Inherit="False">
+      <li>DracnyrRangedSniper</li>
+    </weaponTags>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>FullHead</bodyPartGroup>
+        <apparelLayer>Overhead</apparelLayer>
+        <color>(67, 60, 86)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>Shell</apparelLayer>
+        <color>(70, 70, 70)</color>
+      </li>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+      </li>
+	  <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>LTS_FullCloak</apparelLayer>
+        <color>(67, 60, 86)</color>
+      </li>
+    </specificApparelRequirements>
+	<!--<inventoryOptions>
+      <skipChance>0</skipChance>
+      <thingDef>LTS_DracnyrEndogerm</thingDef>
+      <countRange>1</countRange>
+    </inventoryOptions>-->
   </PawnKindDef>
     
 </Defs>
