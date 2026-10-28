@@ -223,8 +223,7 @@
   
   <PawnKindDef ParentName="DV_DracnyrBase">
     <defName>LTS_Huntress_Dracnyr</defName>
-    <labelMale>hunter</labelMale>
-	<labelFemale>huntress</labelFemale>
+    <label>nightstalker</label>
 	<itemQuality Inherit="False">Excellent</itemQuality>
     <combatPower>170</combatPower>
     <apparelMoney>9000</apparelMoney>
